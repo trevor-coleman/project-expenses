@@ -1,0 +1,17 @@
+runtime: nodejs
+env: flex
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 0.5
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+handlers:
+  - url: /
+    static_files: build/client/index.html
+    upload: build/client/index.html
+  - url: /
+    static_dir: build/client
