@@ -14,20 +14,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../build/client')));
 
 
-app.get("/projects", projectController.allProjects);
-app.get("/project/:id") projectController.getProject);
-app.post("/project", projectController.addProject);
-app.put('/project:/:id', projectController.deleteProject);
+app.get("/api/projects", projectController.allProjects);
+app.get("/api/project/:id", projectController.getProject);
+app.post("/api/project", projectController.addProject);
+app.put('/api/project:/:id', projectController.deleteProject);
 
 
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/../build/client/index.html'));
 });
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use((req:Request, res: Response, next: NextFunction) => {

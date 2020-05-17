@@ -1,68 +1,71 @@
-import { Currency, Money } from 'ts-money';
-import { IProject, IProjectData, IProjectParams } from './AProject';
+import { OrderItem, PaymentMethod, TaxType } from 'classes/';
+import {DatabaseIdType} from 'database';
 
-export type Role = "customer" | "user";
-export type PaymentMethod = "e-transfer" | "cash" | "credit card" | "cheque" | "other";
-export type _MongoID = string;
-export type TaxType = "income" | "hst"
+//Schemas define objects as represented in mongodb.
 
-export interface IExpense {
-    _id: _MongoID;
-    user: _MongoID;
-    project: _MongoID;
+export interface Expense {
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
+    projectId: DatabaseIdType;
     description: string;
     vendor: string;
     amount: number;
     hst: number;
 }
 
-
-
-
-export interface IOrderItem {
-    description: string;
-    quantity: number;
-    price: number;
-    hst: number;
+export interface Project{
+    _id: string | number | DatabaseIdType;
+    userId: string;
+    startDate: string | Date;
+    endDate: string | Date;
+    totalRevenue: number ;
+    totalHSTCollected: number;
+    totalHSTSpent: number ;
+    totalExpenses: number ;
+    incomeTaxRate: number;
+    numberOfOrders: number;
 }
 
-export interface IOrder {
-    _id: _MongoID;
-    customer: _MongoID;
-    vendor: _MongoID;
-    project: _MongoID;
-    items: IOrderItem[];
+export interface Order {
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
+    customerId: DatabaseIdType;
+    vendor: string;
+    projectId: DatabaseIdType;
+    items: OrderItem[];
     paid: boolean;
     paymentMethod: PaymentMethod | null;
     subtotal: number;
     hst: number;
 }
 
-export interface IPerson {
-    _id: _MongoID;
+export interface Person {
+    _id: DatabaseIdType;
     name: string;
     email: string;
-    customerOf: _MongoID[];
+    customerOf: DatabaseIdType[];
 }
 
-export interface IUser {
-    projects: _MongoID[];
+export interface User {
+    projects: DatabaseIdType[];
 }
 
-export interface ITransfer {
+export interface Transfer {
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
     date: string;
     taxType: TaxType;
     amount: number;
+    fromAccount: string;
+    toAccount: string;
 }
 
-export interface DatabaseSchema {
-    people: IPerson[]
-    projects: IProjectData[];
-    expenses: IExpense[];
-    orders: IOrder[];
-    transfers: ITransfer[];
-
-
+export interface Database {
+    people: Person[]
+    projects: Project[];
+    expenses: Expense[];
+    orders: Order[];
+    transfers: Transfer[];
 }
 
 

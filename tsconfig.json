@@ -12,11 +12,12 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "build",
-    "baseUrl": "./build",
+    "baseUrl": ".",
     "paths": {
       "*": [
-        "node_modules/*", "server/*", "classes/*"
-      ]
+        "node_modules/*", "server/*"
+      ],
+        "classes/*": ["classes/"]
     }
   },
   "compileOnSave": true,
