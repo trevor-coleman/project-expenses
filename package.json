@@ -5,12 +5,12 @@
   "scripts": {
     "build": "tsc",
     "start": "node -r ./tsconfig-paths-bootstrap.js .",
-    "start:dev": "node -r dotenv/config -r tsconfig-paths/register -r ts-node/register ./server/bin/www",
+    "start:dev": "node -r dotenv/config -r tsconfig-paths/register -r ts-node/register ./server/index.js",
     "dev": "nodemon",
     "test:unit": "mocha --recursive -r tsconfig-paths/register -r ts-node/register -r source-map-support/register server/**/*.spec.ts",
     "test": "npm run test:unit"
   },
-  "main": "build/app.js",
+  "main": "build/index.js",
   "nodemonConfig": {
     "ignore": [
       "**/*.spec.ts",
@@ -26,20 +26,23 @@
     "ext": "ts"
   },
   "dependencies": {
+    "@codeallnight/falidator": "^0.1.9",
+    "@types/dinero.js": "^1.6.4",
     "@types/mongoose": "^5.7.20",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dinero.js": "^1.8.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongodb": "^3.5.7",
     "morgan": "~1.9.1",
-    "ts-money": "^0.4.6",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.2",
     "validator": "^13.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@types/body-parser": "^1.19.0",
     "@types/chai": "^4.2.11",
     "@types/cookie-parser": "^1.4.2",

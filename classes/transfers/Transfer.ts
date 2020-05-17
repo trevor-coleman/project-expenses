@@ -1,11 +1,11 @@
 import { TaxType } from 'classes/';
+import { Dinero } from 'dinero.js';
 import AHasIds, {IHasIds } from '../abstract/AHasIds';
-import { CAD } from '../CAD';
 
 export interface ITransfer extends IHasIds{
     date: Date;
     taxType: TaxType;
-    amount: CAD;
+    amount: Dinero;
     fromAccount: string;
     toAccount: string;
 }
@@ -13,7 +13,7 @@ export interface ITransfer extends IHasIds{
 export default class Transfer extends AHasIds{
     date: Date;
     taxType: TaxType;
-    amount: CAD;
+    amount: Dinero;
     fromAccount: string;
     toAccount: string;
 

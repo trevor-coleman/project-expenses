@@ -127,12 +127,18 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
             .toArray()).map((projectSchema: ItemSchema) => {return this.make(projectSchema);});
     }
 
-    async add(item: Item): Promise<ListAddResult<Item>> {
+    async add(item: ItemSchema): Promise<ListAddResult<Item>> {
+        console.log(this.collectionName() + " ======= adding\n", item)
+
         const {_id} = item;
-        const db = await this.db;
         if (_id) {
-            item._id = Database.makeId(_id);
+            item._id = Database.newID();
         }
+        const db = await this.db;
+
+
+        console.log("made id", item)
+
         const {result, ops}: InsertOneWriteOpResult<ItemSchema> = await db
             .collection(this.collectionName())
             .insertOne(item)
@@ -144,6 +150,8 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
                 }
                 throw mongoError;
             });
+
+        console.log("And we're here")
         return {
             success: result.ok === 1,
             created: this.make(ops[0]),
@@ -151,8 +159,6 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
     }
 
     abstract make(itemSchema: ItemSchema): Item;
-
-    abstract validate(suspect: ItemInterface | Partial<ItemInterface> | ItemSchema | Partial<ItemSchema>):boolean;
 
     abstract collectionName(): string;
 

@@ -1,6 +1,7 @@
-import { CAD } from '../CAD';
+
 import * as Schema from '../Schema';
 import Order, { IOrder } from './Order';
+import Dinero from 'dinero.js';
 
 export type OrderSchema = Schema.Order;
 export type OrderInterface = IOrder;
@@ -18,8 +19,8 @@ export default class OrderFactory {
             customerId: customerId + "",
             items,
             vendor,
-            subtotal: new CAD(subtotal),
-            hst: new CAD(hst),
+            subtotal: Dinero({amount: subtotal, currency:'CAD'}),
+            hst: Dinero({amount: hst, currency:'CAD'}),
             paid,
             paymentMethod,
         };

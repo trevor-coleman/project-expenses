@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-const app = require('../app');
+const app = require('./app');
 const debug = require('debug')('shadowing-trees:server');
 const http = require('http');
 

@@ -14,10 +14,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../build/client')));
 
 
-app.get("/api/projects", projectController.allProjects);
-app.get("/api/project/:id", projectController.getProject);
 app.post("/api/project", projectController.addProject);
-app.put('/api/project:/:id', projectController.deleteProject);
+
 
 
 

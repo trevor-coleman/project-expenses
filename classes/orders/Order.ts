@@ -1,5 +1,5 @@
 import { OrderItem, PaymentMethod } from 'classes/';
-import { Money } from 'ts-money';
+import {Dinero} from 'dinero.js';
 import AHasIds, {IHasIds } from '../abstract/AHasIds';
 
 export interface IOrder extends IHasIds{
@@ -8,8 +8,8 @@ export interface IOrder extends IHasIds{
     items: OrderItem[];
     paid: boolean;
     paymentMethod: PaymentMethod | null;
-    subtotal: Money;
-    hst: Money;
+    subtotal: Dinero;
+    hst: Dinero;
 }
 
 export default class Order extends AHasIds{
@@ -18,8 +18,8 @@ export default class Order extends AHasIds{
     items: OrderItem[];
     paid: boolean;
     paymentMethod: PaymentMethod | null;
-    subtotal: Money;
-    hst: Money;
+    subtotal: Dinero;
+    hst: Dinero;
 
     constructor({_id, userId, customerId, vendor, projectId, items, paid, paymentMethod, subtotal, hst}: IOrder) {
         super({_id, userId, projectId});

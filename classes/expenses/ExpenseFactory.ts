@@ -1,36 +1,80 @@
+import { runValidations, Validate } from '@codeallnight/falidator';
 import { AFactory } from '../abstract/AFactory';
-import { CAD } from '../CAD';
-import { InvalidOr, Validate } from '../errors';
+import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
-import * as Schema from '../Schema'
+import Dinero from "dinero.js";
 
 export type ExpenseSchema = Schema.Expense;
 export type ExpenseInterface = IExpense;
 export type ExpenseType = Expense
 
-export default class ExpenseFactory extends AFactory<ExpenseType, ExpenseSchema, ExpenseInterface> {
+export default class ExpenseFactory  {
 
-    static makeExpense(expenseSchema: ExpenseSchema): ExpenseType  {
-        const {_id, userId, projectId, description,vendor, amount, hst} = expenseSchema;
+    static makeExpense(expenseSchema: ExpenseSchema): ExpenseType {
+        const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
 
         const newExpenseData: ExpenseInterface = {
-            _id: _id+"", userId: userId + "", projectId: projectId + "", description,vendor, amount: new CAD(amount), hst: new CAD(hst)
+            _id: _id + "",
+            userId: userId + "",
+            projectId: projectId + "",
+            description,
+            vendor,
+            amount: Dinero({amount: amount, currency: "CAD"}),
+            hst: Dinero({amount: hst, currency: "CAD"}),
         };
 
         return new Expense(newExpenseData);
     }
 
-    public validate(item: ExpenseInterface): InvalidOr<ExpenseInterface> {
-        if(item)
+    public static validate(item: ExpenseSchema):ExpenseSchema {
+        const result = runValidations<ExpenseSchema>([
+            ExpenseFactory.hasID,
+            ExpenseFactory.hasUserId,
+            ExpenseFactory.hasProjectId,
+            ExpenseFactory.hasDescription
+        ], item)
 
+        if(ExpenseFactory.isExpenseSchema(result)) return result;
+
+        throw new Error('invalid Expense Schema' + result);
 
     }
 
-    public validateSchema(schema: ExpenseSchema): InvalidOr<ExpenseSchema> {
-        return undefined;
+    static isExpenseSchema (object: any): object is ExpenseSchema {
+        return true;
     }
 
+    static hasID: Validate<ExpenseSchema> = (item: ExpenseSchema) =>
+    {
+        return (
+            ('_id' in item)
+            && (item._id + "" !== ""))
+               ? item
+               : {errorMessage: "expense requires _id"};
+    };
 
+    static hasUserId: Validate<ExpenseSchema> = (item: ExpenseSchema) => {
+        return (
+            ('userId' in item)
+            && (item.userId + "" !== "")
+              ? item
+              : {errorMessage: "expense requires userId"})
+    };
 
+    static hasProjectId: Validate<ExpenseSchema> = (item: ExpenseSchema) => {
+        return (
+            ('projectId' in item)
+            && (item.projectId + "" !== ""))
+               ? item
+               : {errorMessage: "expense requires projectId"};
+    };
+
+    static hasDescription: Validate<ExpenseSchema> = (item: ExpenseSchema) =>
+    {return (
+        ('description' in item)
+        && (item.description !== "")
+        ? item
+        : {errorMessage: "item requires description"})
+    };
 
 }

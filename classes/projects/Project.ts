@@ -1,5 +1,4 @@
-import { Money, Currencies } from 'ts-money';
-import { CAD } from '../CAD';
+import { Dinero } from 'dinero.js'
 
 
 export interface IProject {
@@ -7,10 +6,10 @@ export interface IProject {
     userId: string;
     startDate: Date;
     endDate: Date;
-    totalRevenue: number;
-    totalHSTCollected: number;
-    totalHSTSpent: number;
-    totalExpenses: number;
+    totalRevenue: Dinero;
+    totalHSTCollected: Dinero;
+    totalHSTSpent: Dinero;
+    totalExpenses: Dinero;
     incomeTaxRate: number;
     numberOfOrders: number;
 }
@@ -20,10 +19,10 @@ export default class Project {
     userId: string;
     startDate: Date;
     endDate: Date;
-    totalRevenue: CAD;
-    totalHSTCollected: CAD;
-    totalHSTSpent: CAD;
-    totalExpenses: CAD;
+    totalRevenue: Dinero;
+    totalHSTCollected: Dinero;
+    totalHSTSpent: Dinero;
+    totalExpenses: Dinero;
     incomeTaxRate: number;
     numberOfOrders: number;
 
@@ -37,11 +36,13 @@ export default class Project {
         this.userId = userId;
         this.startDate = new Date(startDate);
         this.endDate = new Date(endDate);
-        this.totalRevenue = new CAD(totalRevenue);
-        this.totalHSTCollected = new CAD(totalHSTCollected);
-        this.totalHSTSpent = new CAD(totalHSTSpent);
-        this.totalExpenses = new CAD(totalExpenses);
+        this.totalRevenue = totalRevenue;
+        this.totalHSTCollected = totalHSTCollected;
+        this.totalHSTSpent = totalHSTSpent;
+        this.totalExpenses = totalExpenses;
         this.incomeTaxRate = incomeTaxRate;
         this.numberOfOrders = numberOfOrders;
+
+        console.log("Project Constructor Complete")
     }
 }

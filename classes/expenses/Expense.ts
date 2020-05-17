@@ -1,19 +1,19 @@
+import { Dinero } from 'dinero.js';
 import AHasIds, { IHasIds } from '../abstract/AHasIds';
-import { CAD } from '../CAD';
 
 
 export interface IExpense extends IHasIds{
     description: string;
     vendor: string;
-    amount: CAD;
-    hst: CAD;
+    amount: Dinero;
+    hst: Dinero;
 }
 
 export default class Expense extends AHasIds{
     description: string;
     vendor: string;
-    amount: CAD;
-    hst: CAD;
+    amount: Dinero;
+    hst: Dinero;
     constructor({_id, userId, projectId, description,vendor, amount, hst}:IExpense) {
         super({_id, userId, projectId });
         this.description = description;

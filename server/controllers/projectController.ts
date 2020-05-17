@@ -1,21 +1,33 @@
 import {Request, Response} from 'express';
+import ProjectList from 'models/ProjectList';
+import { InvalidPropertyError, RequiredParameterError, UniqueConstraintError } from '../../classes/errors';
+import makeHttpError from '../../classes/errors/http-error';
+import ProjectFactory, { ProjectSchema } from '../../classes/projects/ProjectFactory';
+import Database from 'database';
 
-export let allProjects = (req: Request, res: Response) => {
-    res.send("Returns all projects")
-}
+const db = Database.makeDb()
+const projectList = new ProjectList({ db })
 
-export let getProject = (req: Request, res: Response) => {
-    res.send("Returns one project")
-}
+export const addProject = async (req: Request, res: Response) =>  {
+    console.log("\nPOST---")
+    console.log(req.body);
 
-export let deleteProject = (req: Request, res: Response) => {
-    res.send("Returns one project");
-};
+    try {
+        let projectSchema = req.body as ProjectSchema;
+        if (!projectSchema) {
+            res.send("Bad request").status(400)
+        }
 
-export let updateProject = (req: Request, res: Response) => {
-    res.send("Returns one project");
-};
+        console.log("posting")
 
-export let addProject = (req: Request, res: Response) => {
-    res.send("Returns one project");
+        const project = ProjectFactory.makeProject(projectSchema);
+        console.log("make Project")
+        const result = await projectList.add(project)
+        console.log("success", result)
+
+    } catch (e) {
+        console.log(e);
+    }
+
+    res.send();
 };
