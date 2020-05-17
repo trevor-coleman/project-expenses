@@ -1,7 +1,9 @@
+import { DatabaseIdType } from 'database';
+
 export default abstract class AHasIds {
-    _id: string;
-    userId?: string;
-    projectId?: string;
+    _id: DatabaseIdType;
+    userId?: DatabaseIdType;
+    projectId?: DatabaseIdType;
 
     protected constructor({_id, userId, projectId}: IHasIds) {
         this._id = _id;
@@ -11,7 +13,7 @@ export default abstract class AHasIds {
 }
 
 export interface IHasIds {
-    _id: string;
-    userId?: string;
-    projectId?: string;
+    _id: DatabaseIdType;
+    userId?: DatabaseIdType;
+    projectId?: DatabaseIdType;
 }

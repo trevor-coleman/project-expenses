@@ -9,4 +9,8 @@ export default class TransferList extends ADbList<TransferType, TransferSchema, 
     public collectionName(): string {
         return 'transfers';
     }
+
+    public makeSchema(transfer: TransferType): TransferSchema {
+        return TransferFactory.makeSchema(transfer);
+    }
 }

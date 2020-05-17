@@ -1,9 +1,9 @@
+import ProjectController from 'controllers/ProjectController';
 import cookieParser from 'cookie-parser';
 import express, {Request, Response, NextFunction} from 'express';
 import createError, { HttpError } from 'http-errors';
 import logger from 'morgan';
 import path from 'path';
-import * as projectController from './controllers/projectController'
 
 const app: express.Application = express();
 
@@ -14,7 +14,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../build/client')));
 
 
-app.post("/api/project", projectController.addProject);
+app.post("/api/project", ProjectController.add);
+app.get('/api/project/:projectId', ProjectController.findById)
 
 
 

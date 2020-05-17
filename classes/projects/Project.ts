@@ -1,9 +1,10 @@
+import { DatabaseIdType } from 'database';
 import { Dinero } from 'dinero.js'
 
 
 export interface IProject {
-    _id: string;
-    userId: string;
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
     startDate: Date;
     endDate: Date;
     totalRevenue: Dinero;
@@ -15,8 +16,8 @@ export interface IProject {
 }
 
 export default class Project {
-    _id: string;
-    userId: string;
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
     startDate: Date;
     endDate: Date;
     totalRevenue: Dinero;

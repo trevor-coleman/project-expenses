@@ -20,7 +20,8 @@
     "watch": [
       "build",
       "server",
-      "client"
+      "client",
+        "../classes/**/*"
     ],
     "exec": "npm run start:dev",
     "ext": "ts"

@@ -1,4 +1,5 @@
 import { runValidations, Validate } from '@codeallnight/falidator';
+import database from 'database';
 import { AFactory } from '../abstract/AFactory';
 import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
@@ -19,11 +20,27 @@ export default class ExpenseFactory  {
             projectId: projectId + "",
             description,
             vendor,
-            amount: Dinero({amount: amount, currency: "CAD"}),
-            hst: Dinero({amount: hst, currency: "CAD"}),
+            amount: Dinero(amount),
+            hst: Dinero(hst),
         };
 
         return new Expense(newExpenseData);
+    }
+
+    public static makeSchema(expense: ExpenseType): ExpenseSchema {
+        const {_id, userId, projectId, description, vendor, amount, hst} = expense;
+
+        const expenseSchema: ExpenseSchema = {
+            _id: database.makeId(_id),
+            userId: database.makeId(userId ? userId : ""),
+            projectId: database.makeId(projectId? projectId:""),
+            description,
+            vendor,
+            amount: amount.toObject(),
+            hst: hst.toObject(),
+        };
+
+        return expenseSchema;
     }
 
     public static validate(item: ExpenseSchema):ExpenseSchema {
@@ -76,5 +93,6 @@ export default class ExpenseFactory  {
         ? item
         : {errorMessage: "item requires description"})
     };
+
 
 }

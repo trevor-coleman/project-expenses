@@ -10,4 +10,8 @@ export default class PersonList extends ADbList<PersonType, PersonSchema, Person
         return 'people';
     }
 
+    public makeSchema(person: PersonType): PersonSchema {
+        return PersonFactory.makeSchema(person)
+    }
+
 }

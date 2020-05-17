@@ -9,4 +9,8 @@ export default class OrderList extends ADbList<OrderType, OrderSchema, OrderInte
     public collectionName(): string {
         return 'orders';
     }
+
+    public makeSchema(item: OrderType): OrderSchema {
+        return OrderFactory.makeSchema(item);
+    }
 }

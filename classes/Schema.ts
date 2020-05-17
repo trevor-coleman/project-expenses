@@ -1,4 +1,4 @@
-import { OrderItem, PaymentMethod, TaxType } from 'classes/';
+import { Money, OrderItem, PaymentMethod, TaxType } from 'classes/';
 import {DatabaseIdType} from 'database';
 
 //Schemas define objects as represented in mongodb.
@@ -9,19 +9,19 @@ export interface Expense {
     projectId: DatabaseIdType;
     description: string;
     vendor: string;
-    amount: number;
-    hst: number;
+    amount: Money;
+    hst: Money;
 }
 
 export interface Project{
-    _id: string | number | DatabaseIdType;
-    userId: string;
+    _id: DatabaseIdType;
+    userId: DatabaseIdType;
     startDate: string | Date;
     endDate: string | Date;
-    totalRevenue: number ;
-    totalHSTCollected: number;
-    totalHSTSpent: number ;
-    totalExpenses: number ;
+    totalRevenue: Money ;
+    totalHSTCollected: Money;
+    totalHSTSpent: Money ;
+    totalExpenses: Money ;
     incomeTaxRate: number;
     numberOfOrders: number;
 }
@@ -35,8 +35,8 @@ export interface Order {
     items: OrderItem[];
     paid: boolean;
     paymentMethod: PaymentMethod | null;
-    subtotal: number;
-    hst: number;
+    subtotal: Money;
+    hst: Money;
 }
 
 export interface Person {
@@ -55,7 +55,7 @@ export interface Transfer {
     userId: DatabaseIdType;
     date: string;
     taxType: TaxType;
-    amount: number;
+    amount: Money;
     fromAccount: string;
     toAccount: string;
 }
@@ -69,45 +69,3 @@ export interface Database {
 }
 
 
-
-
-
-// export type ProjectExpenseTrackerDatabase = {
-//     projectExpenseTracker: {
-//         people: {
-//             _id: string,
-//             name: "",
-//             type: Role.Customer,
-//         },
-//         projects: {
-//             project: {
-//                 _id: "",
-//                 projectName: "",
-//                 deliveryDate: "",
-//                 orders: {
-//                     customer: {
-//                         _id: "",
-//                     },
-//                     items: {
-//                         item: {},
-//                     },
-//                     paid:true,
-//                     paymentDate: new Date();
-//                     paymentMethod:
-//
-//                 },
-//                 expenses: {
-//                     expense: {
-//                         description: "",
-//                         total: 0.00,
-//                         hst: 0.00,
-//                     },
-//                 },
-//             },
-//         },
-//         items: {},
-//
-//     },
-// };
-//
-//

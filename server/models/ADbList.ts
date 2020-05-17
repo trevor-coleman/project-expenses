@@ -7,7 +7,7 @@ import {
 } from 'mongodb';
 import { UniqueConstraintError } from '../../classes/errors';
 
-import Database, { DatabaseType } from '../database';
+import Database, { DatabaseIdType, DatabaseType } from '../database';
 
 export interface ListResult
 {
@@ -17,7 +17,7 @@ export interface ListResult
 export interface ListReplaceResult<Item> extends ListResult {
 }
 
-export interface ListAddResult<Item> extends ListResult {
+export interface ListCreatedResult<Item> extends ListResult {
     created: Item;
 }
 
@@ -35,8 +35,8 @@ export interface IHasId {
 }
 
 export interface IList<Item, ItemSchema, ItemInterface> {
-    add: (item: Item) => Promise<ListAddResult<Item>>
-    findById: ({_id}: { _id: string }) => Promise<Item | null>;
+    create: (itemSchema: ItemSchema) => Promise<ListCreatedResult<Item>>
+    findById: (_id: string ) => Promise<Item | null>;
     getItems: (pagedGetItemsInfo: IPagedGetItemsInfo) => Promise<Item[]>;
     remove: (item: Item) => Promise<ListRemoveResult>
     replace: (item: Item) => Promise<ListReplaceResult<Item>>;
@@ -66,21 +66,37 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
         this.db = db;
     }
 
-    async findById({_id}: { _id: string }): Promise<Item | null> {
+    async findById(_id: string): Promise<Item | null> {
         const db = await this.db;
+        let collection: string = this.collectionName();
+        const hexId = Database.createFromHexString(_id);
+
+        const filter = {_id: hexId}
+        console.log("find by ID:", filter)
+
         const found = await db
-            .collection(this.collectionName())
-            .findOne({_id: Database.makeId(_id)});
+            .collection(collection)
+            .findOne(filter);
+
+        console.log("found: ",found)
+
         if (found) {
+            console.log("Found", found);
             return this.make(found);
         }
+        console.log("found null")
         return null;
     }
 
     async remove({_id}: { _id: string }): Promise<ListRemoveResult> {
+
         const db = await this.db;
-        const removeResult: DeleteWriteOpResultObject = await db.collection(this.collectionName())
-                                                                .deleteOne({_id: Database.makeId(_id)});
+        const collection: string = this.collectionName();
+        const removeResult: DeleteWriteOpResultObject =
+            await db.collection(collection)
+                    .deleteOne({
+                        _id: Database.makeId(_id)
+                    });
         const {result} = removeResult;
         const {ok, n} = result;
         return {
@@ -127,21 +143,15 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
             .toArray()).map((projectSchema: ItemSchema) => {return this.make(projectSchema);});
     }
 
-    async add(item: ItemSchema): Promise<ListAddResult<Item>> {
-        console.log(this.collectionName() + " ======= adding\n", item)
+    async create(itemSchema: ItemSchema): Promise<ListCreatedResult<Item>> {
+        console.log(this.collectionName() + " ======= adding\n")
 
-        const {_id} = item;
-        if (_id) {
-            item._id = Database.newID();
-        }
         const db = await this.db;
 
-
-        console.log("made id", item)
-
+        const collection: string = this.collectionName();
         const {result, ops}: InsertOneWriteOpResult<ItemSchema> = await db
-            .collection(this.collectionName())
-            .insertOne(item)
+            .collection(collection)
+            .insertOne(itemSchema)
             .catch(mongoError => {
                 const [errorCode] = mongoError.message.split(' ');
                 if (errorCode === 'E11000') {
@@ -150,8 +160,6 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
                 }
                 throw mongoError;
             });
-
-        console.log("And we're here")
         return {
             success: result.ok === 1,
             created: this.make(ops[0]),
@@ -162,4 +170,5 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
 
     abstract collectionName(): string;
 
+    abstract makeSchema(item: Item): ItemSchema;
 }

@@ -14,6 +14,10 @@ export default class ExpenseList extends ADbList<ExpenseType, ExpenseSchema, Exp
         return false;
     }
 
+    public makeSchema(expense: ExpenseType): ExpenseSchema {
+        return ExpenseFactory.makeSchema(expense);
+    }
+
 
 
 
