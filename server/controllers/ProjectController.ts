@@ -7,7 +7,7 @@ const db = Database.makeDb()
 const projectList = new ProjectList({ db })
 
 export default class ProjectController{
-    static async add (req: Request, res: Response)  {
+    static async create (req: Request, res: Response)  {
         let result: CreateProjectResult | null = null;
 
         try {
@@ -27,7 +27,7 @@ export default class ProjectController{
         else{
             res.send("Create failed.").status(500)
         }
-    };
+    }
 
     static async findById(req: Request, res: Response) {
         try{
@@ -39,8 +39,23 @@ export default class ProjectController{
                 res.send(null).status(204)
             }
         } catch(e) {
-            res.send("Bad request").status(400);
+            res.send("Bad request").status(400)
         }
     }
+
+    static async getByUserId(req: Request, res: Response){
+        try{
+            const {userId} = req.params;
+            const result = await projectList.findProjectsByUserId(userId)
+            if(result){
+                res.send(result).status(200)
+            } else {
+                res.send(null).status(204)
+            }
+        } catch(e) {
+            res.send("Bad request").status(400)
+        }
+    }
+
 }
 

@@ -1,5 +1,5 @@
-import { Money, OrderItem, PaymentMethod, TaxType } from 'classes/';
-import {DatabaseIdType} from 'database';
+import { DatabaseIdType, Money, OrderItem, PaymentMethod, TaxType } from './';
+
 
 //Schemas define objects as represented in mongodb.
 
@@ -16,6 +16,7 @@ export interface Expense {
 export interface Project{
     _id: DatabaseIdType;
     userId: DatabaseIdType;
+    name: string;
     startDate: string | Date;
     endDate: string | Date;
     totalRevenue: Money ;

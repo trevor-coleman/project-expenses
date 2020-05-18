@@ -1,4 +1,4 @@
-import { DatabaseIdType } from 'database';
+import { DatabaseIdType } from '../index';
 
 export default abstract class AHasIds {
     _id: DatabaseIdType;

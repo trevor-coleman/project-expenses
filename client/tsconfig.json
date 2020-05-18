@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -18,6 +19,7 @@
     "isolatedModules": true,
     "jsx": "react",
     "outDir": "build",
+    "baseUrl": ".",
     "noEmit": true
   },
   "include": [
@@ -25,5 +27,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

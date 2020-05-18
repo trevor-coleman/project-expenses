@@ -1,6 +1,6 @@
 import { runValidations, Validate } from '@codeallnight/falidator';
+import Database from 'database';
 import database from 'database';
-import { AFactory } from '../abstract/AFactory';
 import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
 import Dinero from "dinero.js";
@@ -43,56 +43,22 @@ export default class ExpenseFactory  {
         return expenseSchema;
     }
 
-    public static validate(item: ExpenseSchema):ExpenseSchema {
-        const result = runValidations<ExpenseSchema>([
-            ExpenseFactory.hasID,
-            ExpenseFactory.hasUserId,
-            ExpenseFactory.hasProjectId,
-            ExpenseFactory.hasDescription
-        ], item)
+    static validateSchema(expenseSchema:ExpenseSchema) : ExpenseSchema {
+        try{
+            const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
 
-        if(ExpenseFactory.isExpenseSchema(result)) return result;
+            Database.validateIds([_id, userId, projectId]);
+            [amount, hst].forEach(
+                (item)=>{
+                    Database.validateMoney(item);
+                }
+            )
+        } catch (e){
+            throw new Error(`Schema Failed Validation - ${e}`);
+        }
 
-        throw new Error('invalid Expense Schema' + result);
 
+
+        return expenseSchema;
     }
-
-    static isExpenseSchema (object: any): object is ExpenseSchema {
-        return true;
-    }
-
-    static hasID: Validate<ExpenseSchema> = (item: ExpenseSchema) =>
-    {
-        return (
-            ('_id' in item)
-            && (item._id + "" !== ""))
-               ? item
-               : {errorMessage: "expense requires _id"};
-    };
-
-    static hasUserId: Validate<ExpenseSchema> = (item: ExpenseSchema) => {
-        return (
-            ('userId' in item)
-            && (item.userId + "" !== "")
-              ? item
-              : {errorMessage: "expense requires userId"})
-    };
-
-    static hasProjectId: Validate<ExpenseSchema> = (item: ExpenseSchema) => {
-        return (
-            ('projectId' in item)
-            && (item.projectId + "" !== ""))
-               ? item
-               : {errorMessage: "expense requires projectId"};
-    };
-
-    static hasDescription: Validate<ExpenseSchema> = (item: ExpenseSchema) =>
-    {return (
-        ('description' in item)
-        && (item.description !== "")
-        ? item
-        : {errorMessage: "item requires description"})
-    };
-
-
 }

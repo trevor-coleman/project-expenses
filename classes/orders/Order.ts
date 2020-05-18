@@ -1,4 +1,4 @@
-import { OrderItem, PaymentMethod } from 'classes/';
+import { OrderItem, PaymentMethod } from '../';
 import {Dinero} from 'dinero.js';
 import AHasIds, {IHasIds } from '../abstract/AHasIds';
 

@@ -1,10 +1,7 @@
-import { Money } from 'classes/*';
+import { DatabaseIdType, Money } from '../classes';
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import validator from 'validator';
 import isISO8601 = validator.isISO8601;
-
-export type DatabaseIdType = ObjectId | string | number
-export type DatabaseType = Db;
 
 export default class Database {
 

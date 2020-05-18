@@ -1,5 +1,5 @@
-import { DatabaseIdType } from 'database';
 import { Dinero } from 'dinero.js'
+import { DatabaseIdType } from '../index';
 
 
 export interface IProject {
@@ -7,6 +7,7 @@ export interface IProject {
     userId: DatabaseIdType;
     startDate: Date;
     endDate: Date;
+    name:string;
     totalRevenue: Dinero;
     totalHSTCollected: Dinero;
     totalHSTSpent: Dinero;
@@ -20,6 +21,7 @@ export default class Project {
     userId: DatabaseIdType;
     startDate: Date;
     endDate: Date;
+    name: string;
     totalRevenue: Dinero;
     totalHSTCollected: Dinero;
     totalHSTSpent: Dinero;
@@ -28,7 +30,7 @@ export default class Project {
     numberOfOrders: number;
 
     constructor({
-                    _id = "", userId, startDate, endDate,
+                    _id = "", userId, name, startDate, endDate,
                     totalRevenue, totalHSTCollected, totalHSTSpent,
                     totalExpenses, incomeTaxRate, numberOfOrders,
                 }: IProject)
@@ -37,6 +39,7 @@ export default class Project {
         this.userId = userId;
         this.startDate = new Date(startDate);
         this.endDate = new Date(endDate);
+        this.name = name;
         this.totalRevenue = totalRevenue;
         this.totalHSTCollected = totalHSTCollected;
         this.totalHSTSpent = totalHSTSpent;

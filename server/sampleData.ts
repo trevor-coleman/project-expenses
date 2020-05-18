@@ -153,6 +153,7 @@ export const sampleData: Schema.Database = {
     projects: [
         {
             '_id': "project1_id",
+            "name":"Project One",
             'userId': "person1_id",
             "startDate": "Sun May 17 2020 00:02:37 GMT-0400 (Eastern Daylight Time)",
             "endDate": "Sun May 17 2020 00:02:37 GMT-0400 (Eastern Daylight Time)",
@@ -165,8 +166,9 @@ export const sampleData: Schema.Database = {
         },
         {
             _id: "project2_id",
-            userId: "person1_id",
-            startDate: new Date().toISOString(),
+            "name":"Project Two",
+            'userId': "person1_id",
+            'startDate': new Date().toISOString(),
             endDate: new Date().toISOString(),
             "totalRevenue": {amount: 4000, currency: "CAD"},
             "totalHSTCollected": {amount: 520, currency: "CAD"},

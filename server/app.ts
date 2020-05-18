@@ -1,3 +1,4 @@
+import ExpenseController from 'controllers/ExpenseController';
 import ProjectController from 'controllers/ProjectController';
 import cookieParser from 'cookie-parser';
 import express, {Request, Response, NextFunction} from 'express';
@@ -14,8 +15,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../build/client')));
 
 
-app.post("/api/project", ProjectController.add);
+app.post("/api/project", ProjectController.create);
 app.get('/api/project/:projectId', ProjectController.findById)
+app.get('/api/:userId/projects', ProjectController.getByUserId);
+
+app.post('/api/expense', ExpenseController.create);
 
 
 

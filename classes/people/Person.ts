@@ -1,4 +1,3 @@
-import { DatabaseIdType } from 'database';
 import AHasIds, { IHasIds } from '../abstract/AHasIds';
 
 export interface IPerson extends IHasIds{

@@ -1,3 +1,4 @@
+import { DatabaseType } from '../../classes';
 import {
     DeleteWriteOpResultObject,
     FilterQuery,
@@ -7,7 +8,7 @@ import {
 } from 'mongodb';
 import { UniqueConstraintError } from '../../classes/errors';
 
-import Database, { DatabaseIdType, DatabaseType } from '../database';
+import Database from '../database';
 
 export interface ListResult
 {
@@ -35,6 +36,7 @@ export interface IHasId {
 }
 
 export interface IList<Item, ItemSchema, ItemInterface> {
+    findProjectsByUserId: (userId: string) => Promise<Item[] | null>;
     create: (itemSchema: ItemSchema) => Promise<ListCreatedResult<Item>>
     findById: (_id: string ) => Promise<Item | null>;
     getItems: (pagedGetItemsInfo: IPagedGetItemsInfo) => Promise<Item[]>;
@@ -72,19 +74,31 @@ export default abstract class ADbList<Item extends IHasId, ItemSchema extends II
         const hexId = Database.createFromHexString(_id);
 
         const filter = {_id: hexId}
-        console.log("find by ID:", filter)
-
         const found = await db
             .collection(collection)
             .findOne(filter);
-
-        console.log("found: ",found)
-
         if (found) {
-            console.log("Found", found);
-            return this.make(found);
+            return found;
         }
-        console.log("found null")
+        return null;
+    }
+
+    async findProjectsByUserId(userId: string): Promise<Item[] | null> {
+        const db = await this.db;
+        let collection: string = this.collectionName();
+        const filter = {userId: userId}
+        console.log("find by UserID:", filter)
+
+        const found = await db
+            .collection(collection)
+            .find(filter);
+        const foundArray:Item[] = await found.map(this.make).toArray();
+
+
+        if (foundArray.length >0) {
+            return foundArray;
+        }
+
         return null;
     }
 

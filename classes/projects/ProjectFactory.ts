@@ -13,7 +13,7 @@ export default class ProjectFactory {
         const validatedSchema =  ProjectFactory.validateSchema(projectSchema)
 
         const {
-            _id, userId, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
+            _id, userId, name, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
         } = validatedSchema;
 
         const newProjectData: ProjectInterface = {
@@ -21,6 +21,7 @@ export default class ProjectFactory {
             userId: userId,
             startDate: new Date(startDate),
             endDate: new Date(endDate),
+            name: name,
             totalRevenue: Dinero(totalRevenue),
             totalHSTCollected: Dinero(totalHSTCollected),
             totalHSTSpent: Dinero(totalHSTSpent),
@@ -33,12 +34,13 @@ export default class ProjectFactory {
 
     static makeSchema(project:Project): ProjectSchema {
         const {
-            _id, userId, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
+            _id, name,userId, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
         } = project;
 
         const projectSchema: ProjectSchema = {
             _id: Database.makeId(_id),
             userId: userId,
+            name: name,
             startDate: new Date(startDate).toISOString(),
             endDate: new Date(endDate).toISOString(),
             totalRevenue: totalRevenue.toObject(),
@@ -58,8 +60,9 @@ export default class ProjectFactory {
     static validateSchema(projectSchema:ProjectSchema) : ProjectSchema {
         try{
             const {
-                _id, userId, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
+                _id, userId, name, startDate, endDate, totalRevenue, totalHSTCollected, totalHSTSpent, totalExpenses, incomeTaxRate, numberOfOrders,
             } = projectSchema;
+
 
             Database.validateIds([_id, userId]);
             Database.validateDate(startDate);

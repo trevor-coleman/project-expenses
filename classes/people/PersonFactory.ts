@@ -1,4 +1,4 @@
-import Database, { DatabaseIdType } from 'database';
+import Database from 'database';
 import isEmail from 'validator/lib/isEmail';
 import normalizeEmail from 'validator/lib/normalizeEmail';
 import { InvalidPropertyError } from '../errors';
