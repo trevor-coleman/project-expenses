@@ -1,3 +1,4 @@
+import { useObserver } from 'mobx-react';
 import React, { PropsWithChildren } from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -12,6 +13,7 @@ import BusinessIcon from '@material-ui/icons/Business'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ProjectList from '../Components/ProjectList';
+import store from '../store';
 
 
 const drawerWidth = 240;
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         content: {
             flexGrow: 1,
-            padding: theme.spacing(3),
+            padding: theme.spacing(1),
         },
     }),
 );
@@ -44,14 +46,26 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function NavAndSidebar(props:PropsWithChildren<any>) {
     const classes = useStyles();
     const {children} = props;
+    const {project} = store.data;
+    const {viewType} = store.ui
 
-    return (
-        <div className={classes.root}>
+    console.log(viewType);
+
+    const viewLabel = () => {
+        switch (viewType.root) {
+            case 'project':
+                return `- ${project.name}`
+            default:
+                return '';
+        }
+    }
+
+    return useObserver(()=> {return <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        RZY Expenses
+                        RZY Expenses {viewLabel()}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -80,6 +94,6 @@ export default function NavAndSidebar(props:PropsWithChildren<any>) {
                 <Toolbar />
                 {children}
             </main>
-        </div>
-    );
+        </div>}
+    )
 }
