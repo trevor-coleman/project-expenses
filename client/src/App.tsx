@@ -1,11 +1,14 @@
 import Container from '@material-ui/core/Container';
 import React from 'react';
 import ProjectList from './Components/ProjectList/';
+import NavAndSidebar from './Layout/NavAndSidebar';
+import ProjectsRoute from './Routes/Projects/ProjectsRoute';
 import ProjectInspector from './Views/ProjectInspector';
 import logo from './logo.svg';
 import './App.css';
-import {makeStyles} from '@material-ui/styles'
-import NavAndSidebar from './Layout/NavAndSidebar';
+import { makeStyles, ThemeProvider } from '@material-ui/styles';
+
+import theme from './Theme'
 
 const useStyles = makeStyles({
     background: {
@@ -16,13 +19,13 @@ const useStyles = makeStyles({
 function App() {
     const classes = useStyles()
   return (
-    <div>
+    <div><ThemeProvider theme={theme}>
         <NavAndSidebar>
-            <Container>
+            <ProjectsRoute><Container>
                 <ProjectInspector />
-            </Container>
+            </Container></ProjectsRoute>
         </NavAndSidebar>
-    </div>
+    </ThemeProvider></div>
   );
 }
 

@@ -8,7 +8,8 @@
     "start:dev": "node -r dotenv/config -r tsconfig-paths/register -r ts-node/register ./server/index.js",
     "dev": "nodemon",
     "test:unit": "mocha --recursive -r tsconfig-paths/register -r ts-node/register -r source-map-support/register server/**/*.spec.ts",
-    "test": "npm run test:unit"
+    "test": "npm run test:unit",
+      "sync": "./node_modules/.bin/sync-folders --watch ./server/classes ./client/src"
   },
   "main": "build/index.js",
   "nodemonConfig": {
@@ -21,7 +22,7 @@
       "build",
       "server",
       "client",
-        "../classes/**/*"
+      "../classes/**/*"
     ],
     "exec": "npm run start:dev",
     "ext": "ts"
@@ -60,6 +61,7 @@
     "mocha": "^7.1.2",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2",
+    "sync-folders": "^2.0.0",
     "ts-node": "^8.10.1"
   }
 }

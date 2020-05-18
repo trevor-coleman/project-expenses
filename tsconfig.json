@@ -15,13 +15,13 @@
     "baseUrl": ".",
     "paths": {
       "*": [
-        "node_modules/*", "server/*", "classes/*"
+        "node_modules/*", "server/*",
       ]
     }
   },
   "compileOnSave": true,
   "include": [
-    "server", "classes"
+    "server",
   ],
   "exclude" : ["node_modules", "client","build"],
 

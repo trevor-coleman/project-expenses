@@ -1,4 +1,4 @@
-import PersonFactory, { PersonSchema, PersonInterface, PersonType } from '../../classes/people/PersonFactory'
+import PersonFactory, { PersonSchema, PersonInterface, PersonType } from '../classes/people/PersonFactory'
 import ADbList from './ADbList';
 
 export default class PersonList extends ADbList<PersonType, PersonSchema, PersonInterface> {

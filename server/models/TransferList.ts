@@ -1,4 +1,4 @@
-import TransferFactory, { TransferSchema, TransferInterface, TransferType } from '../../classes/transfers/TransferFactory';
+import TransferFactory, { TransferSchema, TransferInterface, TransferType } from '../classes/transfers/TransferFactory';
 import ADbList from './ADbList';
 
 export default class TransferList extends ADbList<TransferType, TransferSchema, TransferInterface> {

@@ -1,4 +1,4 @@
-import ProjectFactory, { ProjectSchema, ProjectInterface, ProjectType } from '../../classes/projects/ProjectFactory';
+import ProjectFactory, { ProjectSchema, ProjectInterface, ProjectType } from '../classes/projects/ProjectFactory';
 import ADbList, { ListCreatedResult } from './ADbList';
 
 export type CreateProjectResult = ListCreatedResult<ProjectType>

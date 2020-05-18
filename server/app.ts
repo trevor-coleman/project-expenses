@@ -20,6 +20,7 @@ app.get('/api/project/:projectId', ProjectController.findById)
 app.get('/api/:userId/projects', ProjectController.getByUserId);
 
 app.post('/api/expense', ExpenseController.create);
+app.get('/api/:projectId/expenses', ExpenseController.getByProjectId)
 
 
 

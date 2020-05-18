@@ -1,6 +1,5 @@
 import { runValidations, Validate } from '@codeallnight/falidator';
-import Database from 'database';
-import database from 'database';
+import Database from '../database';
 import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
 import Dinero from "dinero.js";
@@ -31,9 +30,9 @@ export default class ExpenseFactory  {
         const {_id, userId, projectId, description, vendor, amount, hst} = expense;
 
         const expenseSchema: ExpenseSchema = {
-            _id: database.makeId(_id),
-            userId: database.makeId(userId ? userId : ""),
-            projectId: database.makeId(projectId? projectId:""),
+            _id: Database.makeId(_id),
+            userId: Database.makeId(userId ? userId : ""),
+            projectId: Database.makeId(projectId? projectId:""),
             description,
             vendor,
             amount: amount.toObject(),

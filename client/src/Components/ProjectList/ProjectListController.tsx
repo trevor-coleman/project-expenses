@@ -3,7 +3,6 @@ import ProjectList from './ProjectList';
 import React, { FunctionComponent } from 'react';
 import axios from 'axios'
 import { useObserver } from 'mobx-react';
-import * as Schema from '../../../../classes/Schema'
 
 interface IProjectListControllerProps {}
 

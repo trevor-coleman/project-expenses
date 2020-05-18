@@ -1,4 +1,5 @@
-import ExpenseFactory, { ExpenseSchema, ExpenseInterface, ExpenseType } from '../../classes/expenses/ExpenseFactory'
+import Expense from '../classes/expenses/Expense';
+import ExpenseFactory, { ExpenseSchema, ExpenseInterface, ExpenseType } from '../classes/expenses/ExpenseFactory'
 import ADbList from './ADbList';
 
 export default class ExpenseList extends ADbList<ExpenseType, ExpenseSchema, ExpenseInterface> {
@@ -18,8 +19,23 @@ export default class ExpenseList extends ADbList<ExpenseType, ExpenseSchema, Exp
         return ExpenseFactory.makeSchema(expense);
     }
 
+    public async findExpensesByProjectId(projectId: string): Promise<Expense[] | null>  {
+        const db = await this.db;
+        let collection: string = this.collectionName();
+        const filter = {projectId: projectId}
+    console.log("find by projectID:", filter)
+
+    const found = await db
+        .collection(collection)
+        .find(filter);
+    const foundArray:Expense[] = await found.map(this.make).toArray();
 
 
+    if (foundArray.length >0) {
+        return foundArray;
+    }
 
-    
+
+    return null;
+}
 }

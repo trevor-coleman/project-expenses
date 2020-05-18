@@ -1,4 +1,4 @@
-import Database from 'database';
+import Database from '../database';
 import Dinero from 'dinero.js'
 import Project, { IProject } from './Project';
 import * as Schema from '../Schema'

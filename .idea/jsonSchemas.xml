@@ -15,6 +15,12 @@
                   <Item>
                     <option name="path" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="client/src/Ui/Theme/theme.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="client/src/Theme/theme.json" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

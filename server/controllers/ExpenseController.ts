@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { ListCreatedResult } from 'models/ADbList';
 import ExpenseList from 'models/ExpenseList';
-import ExpenseFactory, { ExpenseSchema, ExpenseType } from '../../classes/expenses/ExpenseFactory';
-import Database from 'database';
+import ExpenseFactory, { ExpenseSchema, ExpenseType } from '../classes/expenses/ExpenseFactory';
+import Database from '../classes/database';
 
 const db = Database.makeDb()
 const expenseList = new ExpenseList({ db })
@@ -65,6 +65,21 @@ export default class ExpenseController {
         } catch(e) {
             res.send("Bad request").status(400)
         }
+    }
+
+    public static async getByProjectId(req: Request, res: Response){
+        try{
+            const {projectId: projectId} = req.params;
+            const result = await expenseList.findExpensesByProjectId(projectId)
+            if(result){
+                res.send(result).status(200)
+            } else {
+                res.send(null).status(204)
+            }
+        } catch(e) {
+            res.send("Bad request").status(400)
+        }
+
     }
 }
 

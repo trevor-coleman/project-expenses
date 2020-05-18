@@ -1,4 +1,4 @@
-import { DatabaseType } from '../../classes';
+import { DatabaseType } from '../classes';
 import {
     DeleteWriteOpResultObject,
     FilterQuery,
@@ -6,9 +6,9 @@ import {
     QuerySelector, UpdateOneOptions, UpdateQuery,
     UpdateWriteOpResult,
 } from 'mongodb';
-import { UniqueConstraintError } from '../../classes/errors';
+import { UniqueConstraintError } from '../classes/errors';
 
-import Database from '../database';
+import Database from '../classes/database';
 
 export interface ListResult
 {

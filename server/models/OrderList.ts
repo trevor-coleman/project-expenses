@@ -1,4 +1,4 @@
-import OrderFactory, { OrderSchema, OrderInterface, OrderType } from '../../classes/orders/OrderFactory'
+import OrderFactory, { OrderSchema, OrderInterface, OrderType } from '../classes/orders/OrderFactory'
 import ADbList from './ADbList';
 
 export default class OrderList extends ADbList<OrderType, OrderSchema, OrderInterface> {

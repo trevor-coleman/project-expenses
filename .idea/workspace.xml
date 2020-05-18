@@ -14,42 +14,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsonSchemas.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/paths.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectListController.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ProjectList/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspectorController.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/ExpenseController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Theme/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Theme/theme.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsonSchemas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsonSchemas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/abstract/AHasIds.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/abstract/AHasIds.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/expenses/ExpenseFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/expenses/ExpenseFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/orders/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/orders/Order.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/people/Person.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/people/Person.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/people/PersonFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/people/PersonFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/projects/Project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/projects/ProjectFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/projects/ProjectFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/transfers/Transfer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/classes/transfers/Transfer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/Schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/abstract/AFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/abstract/AFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/abstract/AHasIds.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/abstract/AHasIds.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/errors/http-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/errors/http-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/errors/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/errors/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/expenses/Expense.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/expenses/Expense.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/expenses/ExpenseFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/expenses/ExpenseFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/orders/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/orders/Order.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/orders/OrderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/orders/OrderFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/people/Person.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/people/Person.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/people/PersonFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/people/PersonFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/projects/Project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/projects/ProjectFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/projects/ProjectFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/transfers/Transfer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/transfers/Transfer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/transfers/TransferFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/transfers/TransferFactory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesListController.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectListController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectListController.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Ui/Theme/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Ui/Theme/theme.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspectorController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspectorController.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/AController.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/ExpenseController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/ExpenseController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/ProjectController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/ProjectController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/database.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/ADbList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ADbList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/ExpenseList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ExpenseList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/OrderList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/OrderList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/PersonList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/PersonList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/ProjectList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ProjectList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/TransferList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/TransferList.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/sampleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/sampleData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +72,9 @@
       <list>
         <option value="tsconfig.json" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="React Component (TS)" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -85,7 +96,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;JSON" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/classes/transfers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -103,11 +114,11 @@
       <recent name="$PROJECT_DIR$/classes/people" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/client/src" />
+      <recent name="$PROJECT_DIR$/classes" />
       <recent name="$PROJECT_DIR$/client/src/Views/ProjectInspector" />
       <recent name="$PROJECT_DIR$/client/src/Views" />
-      <recent name="$PROJECT_DIR$/classes" />
-      <recent name="$PROJECT_DIR$/server" />
-      <recent name="$PROJECT_DIR$/classes/errors" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -127,17 +138,12 @@
       <workItem from="1589585440307" duration="15716000" />
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
-      <workItem from="1589745880785" duration="15939000" />
+      <workItem from="1589745880785" duration="27155000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/server/database.d.ts" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -173,6 +179,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="933" y="343" key="#start.js/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589687891212" />
+    <state x="741" y="564" key="FileDocumentManager.FileCacheConflict" timestamp="1589819988327">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="741" y="564" key="FileDocumentManager.FileCacheConflict/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589819988327" />
     <state width="2534" height="410" key="GridCell.Tab.0.bottom" timestamp="1589503986175">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -221,10 +231,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="100" y="100" width="2360" height="1240" key="dock-window-7/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589692458832" />
-    <state x="900" y="393" width="759" height="654" key="find.popup" timestamp="1589692613022">
+    <state x="900" y="393" width="759" height="726" key="find.popup" timestamp="1589819298465">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="900" y="393" width="759" height="654" key="find.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589692613022" />
+    <state x="900" y="393" width="759" height="726" key="find.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589819298465" />
     <state x="861" y="342" key="run.anything.popup" timestamp="1589766042402">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>

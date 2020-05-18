@@ -1,4 +1,4 @@
-import * as Schema from '../classes/Schema';
+import * as Schema from './classes/Schema';
 
 export const sampleData: Schema.Database = {
     people: [

@@ -1,5 +1,5 @@
 
-import database from 'database';
+import database from '../database';
 import * as Schema from '../Schema';
 import Order, { IOrder } from './Order';
 import Dinero from 'dinero.js';

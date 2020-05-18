@@ -1,5 +1,3 @@
-import { errorMonitor } from 'events';
-
 export class UniqueConstraintError extends Error {
     constructor (value:string) {
         super(`${value} must be unique.`)

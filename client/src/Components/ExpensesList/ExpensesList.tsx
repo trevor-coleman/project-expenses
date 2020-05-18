@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import store from "../store";
+import store from '../../store';
 import { useObserver } from 'mobx-react';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,10 +13,11 @@ const useStyles = makeStyles({
 
 const ExpensesList: FunctionComponent<IExpensesListProps> = (props: ExpensesListProps) => {
     const classes = useStyles();
+    const {expenses} = store;
 
     return useObserver(() => (
         <div className={classes.ExpensesList}>
-            ExpensesList
+            {expenses.map((expense)=><div>{expense._id}</div>)}
         </div>
     ));
 };

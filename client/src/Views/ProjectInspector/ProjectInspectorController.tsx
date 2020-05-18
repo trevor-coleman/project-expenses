@@ -2,7 +2,6 @@ import { Button } from '@material-ui/core';
 import React, { FunctionComponent } from 'react';
 import { useObserver } from 'mobx-react';
 import ProjectInspector from './ProjectInspector';
-import axios from 'axios';
 import store from '../../store'
 
 

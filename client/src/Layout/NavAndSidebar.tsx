@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function ClippedDrawer(props:PropsWithChildren<any>) {
+export default function NavAndSidebar(props:PropsWithChildren<any>) {
     const classes = useStyles();
     const {children} = props;
 
@@ -51,7 +51,7 @@ export default function ClippedDrawer(props:PropsWithChildren<any>) {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        Clipped drawer
+                        RZY Expenses
                     </Typography>
                 </Toolbar>
             </AppBar>

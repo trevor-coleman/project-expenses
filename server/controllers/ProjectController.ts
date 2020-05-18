@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import ProjectList, { CreateProjectResult } from 'models/ProjectList';
-import ProjectFactory, { ProjectSchema } from '../../classes/projects/ProjectFactory';
-import Database from 'database';
+import ProjectFactory, { ProjectSchema } from '../classes/projects/ProjectFactory';
+import Database from '../classes/database';
 
 const db = Database.makeDb()
 const projectList = new ProjectList({ db })
