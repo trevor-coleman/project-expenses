@@ -1,7 +1,7 @@
 import Database from '../database';
 import * as Schema from '../Schema';
 import Transfer, { ITransfer } from './Transfer';
-import Dinero from 'dinero.js';
+import Dinero from '../MyDinero';
 
 export type TransferSchema = Schema.Transfer;
 export type TransferInterface = ITransfer;

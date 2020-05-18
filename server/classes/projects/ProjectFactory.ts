@@ -1,11 +1,11 @@
 import Database from '../database';
-import Dinero from 'dinero.js'
+import Dinero from '../MyDinero'
 import Project, { IProject } from './Project';
 import * as Schema from '../Schema'
-
 export type ProjectSchema = Schema.Project;
 export type ProjectInterface = IProject;
 export type ProjectType = Project
+
 
 export default class ProjectFactory {
 

@@ -1,14 +1,13 @@
-import { runValidations, Validate } from '@codeallnight/falidator';
 import Database from '../database';
 import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
-import Dinero from "dinero.js";
+import Dinero from "../MyDinero";
 
 export type ExpenseSchema = Schema.Expense;
 export type ExpenseInterface = IExpense;
 export type ExpenseType = Expense
 
-export default class ExpenseFactory  {
+export default class ExpenseFactory  {  
 
     static makeExpense(expenseSchema: ExpenseSchema): ExpenseType {
         const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
@@ -31,8 +30,8 @@ export default class ExpenseFactory  {
 
         const expenseSchema: ExpenseSchema = {
             _id: Database.makeId(_id),
-            userId: Database.makeId(userId ? userId : ""),
-            projectId: Database.makeId(projectId? projectId:""),
+            userId: Database.makeId(userId),
+            projectId: Database.makeId(projectId),
             description,
             vendor,
             amount: amount.toObject(),

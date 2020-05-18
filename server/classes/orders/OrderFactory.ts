@@ -2,8 +2,7 @@
 import database from '../database';
 import * as Schema from '../Schema';
 import Order, { IOrder } from './Order';
-import Dinero from 'dinero.js';
-
+import Dinero from '../MyDinero'
 export type OrderSchema = Schema.Order;
 export type OrderInterface = IOrder;
 export type OrderType = Order
