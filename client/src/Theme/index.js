@@ -1,7 +1,7 @@
 // src/ui/theme/index.js
 
 import {createMuiTheme} from '@material-ui/core/styles';
-import {responsiveFontSizes} from "@material-ui/core";
+import themeJSON from './theme.json'
 
 const palette = {
     primary: {main: '#FFF3E0'},
@@ -108,6 +108,17 @@ const typography = {
     }
 }
 
+const overrides = {
+    MuiButton: {
+        secondary: {
+            color: "#6d4c41",
+            border: "1px solid",
+            borderColor: "#6d4c41"
+        }
+
+    }
+}
+
 const themeName = 'Sazerac Porcelain Caracal';
-let theme = createMuiTheme({palette, typography, themeName});
+let theme = createMuiTheme({palette: themeJSON.palette, typography, overrides, themeName});
 export default theme;
