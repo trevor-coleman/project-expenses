@@ -13,32 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Create MyDinero and set default locale aand currency.">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/trevorcoleman.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesRow.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/classes/MyDinero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProjectList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList/ProjectListController.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Theme/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Theme/theme.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Theme/theme.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspectorController.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/expenses/ExpenseFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/expenses/ExpenseFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/orders/OrderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/orders/OrderFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/projects/ProjectFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/projects/ProjectFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/transfers/TransferFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/transfers/TransferFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/expenses/ExpenseFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/expenses/ExpenseFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/orders/OrderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/orders/OrderFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/projects/ProjectFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/projects/ProjectFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/transfers/TransferFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/transfers/TransferFactory.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Change inspection profile." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +90,7 @@
       <workItem from="1589585440307" duration="15716000" />
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
-      <workItem from="1589745880785" duration="41888000" />
+      <workItem from="1589745880785" duration="42590000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -138,7 +113,70 @@
       <option name="project" value="LOCAL" />
       <updated>1589834868560</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Create MyDinero and set default locale and currency.">
+      <created>1589835148381</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835148381</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update theme with typograhy.">
+      <created>1589835194291</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835194291</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update project files">
+      <created>1589835220915</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835220915</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Remove unnecessary controllers. Update store location.">
+      <created>1589835300410</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835300410</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Remove unnecessary controllers. Update store location.">
+      <created>1589835310822</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835310822</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adjust padding. Add project label to app bar. Add observer.">
+      <created>1589835368898</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835368898</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update theme.">
+      <created>1589835383924</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835383924</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Create ExpensesList and ExpensesRow.">
+      <created>1589835452688</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835452688</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Change inspection profile.">
+      <created>1589835463439</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589835463439</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +202,15 @@
     <MESSAGE value="Fixed import of isISO8601" />
     <MESSAGE value="Breakout stores." />
     <MESSAGE value="Create MyDinero and set default locale aand currency." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create MyDinero and set default locale aand currency." />
+    <MESSAGE value="Create MyDinero and set default locale and currency." />
+    <MESSAGE value="Update theme with typograhy." />
+    <MESSAGE value="update project files" />
+    <MESSAGE value="Remove unnecessary controllers. Update store location." />
+    <MESSAGE value="Adjust padding. Add project label to app bar. Add observer." />
+    <MESSAGE value="update theme." />
+    <MESSAGE value="Create ExpensesList and ExpensesRow." />
+    <MESSAGE value="Change inspection profile." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change inspection profile." />
   </component>
   <component name="WindowStateProjectService">
     <state x="917" y="513" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589492738414">
