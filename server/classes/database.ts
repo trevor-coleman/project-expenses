@@ -1,7 +1,8 @@
-import { DatabaseIdType, Money } from '../classes';
+import { DatabaseIdType, Money } from './';
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import validator from 'validator';
-import isISO8601 = validator.isISO8601;
+
+const isISO8601 = validator.isISO8601;
 
 export default class Database {
 
