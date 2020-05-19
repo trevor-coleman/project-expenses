@@ -1,16 +1,17 @@
-import { Box, Paper } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
+import { Box, Paper, Toolbar } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from "@material-ui/core/styles";
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
+import { RouteComponentProps, Router } from '@reach/router';
 import { useObserver } from 'mobx-react';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
 import ExpensesList from '../Components/ExpensesList';
+import ExpensesTabNav from '../Components/ExpensesList/ExpensesTabNav';
 import store from '../store';
 
-interface IProjectProps {
+interface IProjectProps extends RouteComponentProps {
+    projectId?: string;
 }
 
 type ProjectProps = IProjectProps;
@@ -21,79 +22,59 @@ const useStyles = makeStyles({
     }, topPaper: {},
 });
 
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: any;
-    value: any;
+interface TabRouteProps extends PropsWithChildren<RouteComponentProps> {
+    index: number;
+    projectId: string | undefined;
 }
 
-function TabPanel(props: TabPanelProps) {
-    const {children, value, index, ...other} = props;
+const Summary = (props: TabRouteProps) => {
+    return <Box p={3}>
+        <List>
+            <ListItem>Total
+                Expenses: {store.data.totals.totalAmount.toFormat(`$0.00`)}</ListItem>
+            <ListItem>Total HST: {store.data.totals.totalHST.toFormat(`$0.00`)}</ListItem>
+        </List> </Box>
+};
 
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box p={3}>
-                    {children}
-                </Box>)}
-        </div>);
-}
+const Expenses = (props: TabRouteProps) => {
+
+    return  <Box p={3}><ExpensesList/></Box>
+};
+
+const Orders = (props: TabRouteProps) => {
+    return <Box p={3}>
+        <Typography variant={'h2'}>Orders</Typography>
+    </Box>;
+
+};
 
 const ProjectInspector: FunctionComponent<IProjectProps> = (props: ProjectProps) => {
     const classes = useStyles();
+    const {projectId} = props;
     const {project} = store.data;
     const [value, setValue] = React.useState(0);
     const state = store.ui.projectInspector;
 
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue);
-    };
+    if (projectId) {
+        store.data.setProject(projectId);
+    }
 
     return useObserver(() => {
-
         return (
-            state.projectLoaded
-            ? (
-                <div className={classes.Project}>
-                    <Paper>
-                        <AppBar color={'transparent'} position={"static"}>
-                            <Tabs onChange={handleChange} value={value}>
-                                <Tab label={"Summary"}/>
-                                <Tab label={"Expenses"}/>
-                                <Tab label={"Orders"}/>
-                            </Tabs>
-                        </AppBar>
-                        {project.name
-                         ? (
-                             <div>
-
-                                 <TabPanel value={value} index={0}>
-                                     Summary:
-                                     <List>
-                                         <ListItem>Total
-                                             Expenses: {store.data.totals.totalAmount.toFormat(`$0.00`)}</ListItem>
-                                         <ListItem>Total HST: {store.data.totals.totalHST.toFormat(`$0.00`)}</ListItem>
-                                     </List>
-                                 </TabPanel>
-                                 <TabPanel value={value} index={1}>
-                                     <ExpensesList/>
-                                 </TabPanel>
-                                 <TabPanel value={value} index={2}>
-                                     Orders
-                                 </TabPanel>
-                             </div>)
-                         : (
-                             <div/>)}
-                    </Paper>
-                </div>)
-            : <div/>);
+            <div className={classes.Project}>
+                <Paper>
+                    <div>
+                        <Router>
+                            <Summary index={0} projectId={projectId} path={"/"}/>
+                            <Expenses index={0} projectId={projectId} path={"expenses"}/>
+                            <Orders index={0} projectId={projectId} path={"orders"}/>
+                        </Router>
+                    </div>
+                </Paper>
+            </div>);
     });
 };
 
 export default ProjectInspector;
+
+

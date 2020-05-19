@@ -7,6 +7,7 @@ import NavAndSidebar from './Layout/NavAndSidebar';
 import ProjectsRoute from './Routes/Projects/ProjectsRoute';
 import theme from './Theme';
 import ProjectInspector from './Views/ProjectInspector';
+import { Router, Link } from "@reach/router"
 
 function App() {
     return (
@@ -14,12 +15,13 @@ function App() {
             <MuiPickersUtilsProvider utils={MomentUtils}>
                 <ThemeProvider theme={theme}>
                     <NavAndSidebar>
-                        <ProjectsRoute>
-                            <ProjectInspector/>
-                        </ProjectsRoute>
+                        <Router>
+                        <ProjectsRoute path={'/project/*'}/>
+                        </Router>
                     </NavAndSidebar>
                 </ThemeProvider>
             </MuiPickersUtilsProvider></div>);
 }
 
 export default App;
+

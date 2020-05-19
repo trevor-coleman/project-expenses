@@ -46,7 +46,5 @@ export default class Project {
         this.totalExpenses = totalExpenses;
         this.incomeTaxRate = incomeTaxRate;
         this.numberOfOrders = numberOfOrders;
-
-        console.log("Project Constructor Complete")
     }
 }

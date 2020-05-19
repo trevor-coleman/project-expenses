@@ -3,6 +3,7 @@ import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
+import { RouteComponentProps, Router, RouterProps } from '@reach/router';
 import React, { FunctionComponent, PropsWithChildren } from 'react';
 import store from "../../store";
 import { useObserver } from 'mobx-react';
@@ -10,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import theme from '../../Theme';
 import ProjectInspector from '../../Views/ProjectInspector';
 
-interface IProjectsRouteProps{}
+interface IProjectsRouteProps extends RouteComponentProps{}
 
 type ProjectsRouteProps = IProjectsRouteProps;
 
@@ -30,7 +31,9 @@ const ProjectsRoute: FunctionComponent<IProjectsRouteProps> = (props: PropsWithC
 
     return useObserver(() => (
         <div className={classes.ProjectsRoute}>
-            <ProjectInspector/>
+        <Router>
+            <ProjectInspector path={":projectId/*"}/>
+        </Router>
         </div>
     ));
 };

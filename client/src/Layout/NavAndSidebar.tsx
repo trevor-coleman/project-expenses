@@ -11,9 +11,11 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import BusinessIcon from '@material-ui/icons/Business';
+import { Router } from '@reach/router';
 import { useObserver } from 'mobx-react';
 import React, { PropsWithChildren } from 'react';
 import ProjectList from '../Components/ProjectList';
+import ProjectSidebar from '../Routes/Projects/ProjectSidebar';
 import store from '../store';
 
 const drawerWidth = 240;
@@ -46,9 +48,6 @@ export default function NavAndSidebar(props:PropsWithChildren<any>) {
     const {children} = props;
     const {project} = store.data;
     const {viewType} = store.ui
-
-    console.log(viewType);
-
     const viewLabel = () => {
         switch (viewType.root) {
             case 'project':
@@ -76,16 +75,9 @@ export default function NavAndSidebar(props:PropsWithChildren<any>) {
             >
                 <Toolbar />
                 <div className={classes.drawerContainer}>
-                    <List>
-                            <ListItem button onClick={() => store.data.getProjects()}>
-                                <ListItemIcon>
-                                    <BusinessIcon/>
-                                </ListItemIcon>
-                                <ListItemText primary={"Projects"}/>
-                            </ListItem>
-                    </List>
-                    <ProjectList/>
-                    <Divider />
+                    <Router>
+                        <ProjectSidebar path={"/project/*"}/>
+                    </Router>
                 </div>
             </Drawer>
             <main className={classes.content}>

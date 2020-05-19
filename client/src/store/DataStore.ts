@@ -12,7 +12,7 @@ import RootStore from './Rootstore';
 
 const userId = '5ec1d99c73b4e52eeab42346';
 
-type EmptyProject = { name: "No Project" }
+type EmptyProject = { name: "No Project", _id:"" }
 
 type newExpenseData = {
     date: moment.Moment; amount: Dinero.Dinero; vendor: string; hst: Dinero.Dinero; description: string
@@ -31,22 +31,21 @@ export default class DataStore {
     }
 
     @observable projects: IObservableArray<Project> = observable([]);
-    @observable project: Project | EmptyProject = {name: "No Project"};
+    @observable project: Project | EmptyProject = {name: "No Project", _id:""};
     @observable expenses: IObservableArray<Expense> = observable([]);
 
 
-    @action setProject = (projectId: DatabaseIdType) => {
+    @action setProject = async (projectId: DatabaseIdType) => {
+
+        if(projectId.toString() === this.project._id.toString()) return;
+
         const {ui} = this.rootStore;
         ui.viewType.root = "default";
         ui.setProjectLoaded(false);
 
 
-        axios.get(`/api/project/${projectId}`).then(
-            ({data}) => {
-                this.handleRecieveProject(data);
-            },
-        );
-
+        const {data} = await axios.get(`/api/project/${projectId}`)
+        this.handleRecieveProject(data);
         this.getExpenses(projectId);
     };
 
@@ -58,9 +57,11 @@ export default class DataStore {
         ui.setProjectLoaded(true);
     }
 
-    @action getProjects = (userId: DatabaseIdType = "5ec1d99c73b4e52eeab42346") => {
+    @action getProjects = async (userId: DatabaseIdType = "5ec1d99c73b4e52eeab42346") => {
         axios.get(`/api/${userId.toString()}/projects`).then((response) => {
-            {this.projects.replace(response.data);}
+            {this.projects.replace(response.data);
+            return response.data;
+            }
         });
     };
 

@@ -13,8 +13,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row.">
-      <change beforePath="$PROJECT_DIR$/server/models/ExpenseList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ExpenseList.ts" afterDir="false" />
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;">
+      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesTabNav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProjectList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/projects/Project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/DataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/DataStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/projects/Project.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +110,7 @@
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
       <workItem from="1589745880785" duration="57849000" />
-      <workItem from="1589856539571" duration="8350000" />
+      <workItem from="1589856539571" duration="16077000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -214,7 +224,28 @@
       <option name="project" value="LOCAL" />
       <updated>1589865531590</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Sort expense results by date.">
+      <created>1589865562006</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1589865562006</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add date places">
+      <created>1589865641946</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1589865641947</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;">
+      <created>1589865650035</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1589865650035</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +284,11 @@
     <MESSAGE value="Create MyDinero with defaults." />
     <MESSAGE value="Extracted ExpensesEditRow as separate component. Added moment to handle dates. Add material-ui-picker. created state on ExpensesEditRow. Add sync script." />
     <MESSAGE value="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row." />
+    <MESSAGE value="Sort expense results by date.&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
+    <MESSAGE value="Sort expense results by date." />
+    <MESSAGE value="Add date places" />
+    <MESSAGE value="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
