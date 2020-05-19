@@ -1,14 +1,14 @@
 import * as Schema from './classes/Schema';
 
+//ts-ign
+
+// @ts-ignore
+// @ts-ignore
 export const sampleData: Schema.Database = {
     people: [
         {
-            _id: "person1_id",
-            name: "Bobby Sue",
-            email: "bobbysue@gmail.com",
-            customerOf: [],
-        },
-        {
+            _id: "person1_id", name: "Bobby Sue", email: "bobbysue@gmail.com", customerOf: [],
+        }, {
             _id: "person2_id",
             name: "Billy Joe",
             email: "billyjoe@gmail.com",
@@ -24,32 +24,34 @@ export const sampleData: Schema.Database = {
     expenses: [
         {
             _id: "expense1_id",
+            date: "2020-05-12",
             description: "expense1_description",
             userId: "person1_id",
             projectId: "project1_id",
             vendor: "expense1_vendor",
             amount: {amount: 500, currency: "CAD"},
             hst: {amount: 65, currency: "CAD"},
-        },
-        {
+        }, {
             _id: "expense2_id",
+            date: "2020-05-12",
             description: "expense2_description",
             userId: "person1_id",
             vendor: "expense2_vendor",
             projectId: "project1_id",
             amount: {amount: 700, currency: "CAD"},
-            hst: {amount: 91, currency: "CAD"}
+            hst: {amount: 91, currency: "CAD"},
         }, {
             _id: "expense3_id",
+            date: "2020-05-12",
             description: "expense3_description",
             userId: "person1_id",
             projectId: "project2_id",
             vendor: "expense3_vendor",
             amount: {amount: 500, currency: "CAD"},
             hst: {amount: 65, currency: "CAD"},
-        },
-        {
+        }, {
             _id: "expense4_id",
+            date: "2020-05-12",
             description: "expense4_description",
             userId: "person1_id",
             vendor: "expense4_vendor",

@@ -45,11 +45,31 @@ const ExpensesList: FunctionComponent<IExpensesListProps> = (props: ExpensesList
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.dateColumn} align="left">Date</TableCell>
-                        <TableCell align="left">Description</TableCell>
-                        <TableCell align="left">Vendor</TableCell>
-                        <TableCell className={classes.moneyColumn} align="right">Amount</TableCell>
-                        <TableCell className={classes.moneyColumn} align="right">HST</TableCell>
+                        <TableCell className={classes.dateColumn} align="left">
+                            <Typography variant={'subtitle1'}>
+                                Date
+                            </Typography>
+                        </TableCell>
+                        <TableCell align="left">
+                            <Typography variant={'subtitle1'}>
+                                Description
+                            </Typography>
+                        </TableCell>
+                        <TableCell align="left">
+                            <Typography variant={'subtitle1'}>
+                                Vendor
+                            </Typography>
+                        </TableCell>
+                        <TableCell className={classes.moneyColumn} align="right">
+                            <Typography variant={'subtitle1'}>
+                                Amount
+                            </Typography>
+                        </TableCell>
+                        <TableCell className={classes.moneyColumn} align="right">
+                            <Typography variant={'subtitle1'}>
+                                HST
+                            </Typography>
+                        </TableCell>
                     </TableRow>
                     {state.editing
                      ? <ExpensesEditRow/>

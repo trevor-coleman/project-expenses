@@ -1,5 +1,7 @@
 import { Box, Paper } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from "@material-ui/core/styles";
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -72,7 +74,12 @@ const ProjectInspector: FunctionComponent<IProjectProps> = (props: ProjectProps)
                              <div>
 
                                  <TabPanel value={value} index={0}>
-                                     Summary
+                                     Summary:
+                                     <List>
+                                         <ListItem>Total
+                                             Expenses: {store.data.totals.totalAmount.toFormat(`$0.00`)}</ListItem>
+                                         <ListItem>Total HST: {store.data.totals.totalHST.toFormat(`$0.00`)}</ListItem>
+                                     </List>
                                  </TabPanel>
                                  <TabPanel value={value} index={1}>
                                      <ExpensesList/>

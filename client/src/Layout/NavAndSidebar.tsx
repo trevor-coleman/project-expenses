@@ -77,11 +77,11 @@ export default function NavAndSidebar(props:PropsWithChildren<any>) {
                 <Toolbar />
                 <div className={classes.drawerContainer}>
                     <List>
-                            <ListItem button>
-                               <ListItemIcon>
+                            <ListItem button onClick={() => store.data.getProjects()}>
+                                <ListItemIcon>
                                     <BusinessIcon/>
-                               </ListItemIcon>
-                                <ListItemText primary={"Projects"} />
+                                </ListItemIcon>
+                                <ListItemText primary={"Projects"}/>
                             </ListItem>
                     </List>
                     <ProjectList/>

@@ -2,6 +2,10 @@ export const componentStyles = {
     moneyColumn: {
         width: 100,
     }, dateColumn: {
-        width: 100,
-    }, descriptionColumn: {}, vendorColumn: {},
+        width: 190,
+    }, descriptionColumn: {
+        width: '50%',
+    }, vendorColumn: {
+        width: '50%',
+    },
 };
