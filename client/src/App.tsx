@@ -1,21 +1,25 @@
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
+import './App.css';
 import NavAndSidebar from './Layout/NavAndSidebar';
 import ProjectsRoute from './Routes/Projects/ProjectsRoute';
+import theme from './Theme';
 import ProjectInspector from './Views/ProjectInspector';
-import './App.css';
-import { ThemeProvider } from '@material-ui/styles';
-import theme from './Theme'
 
 function App() {
-  return (
-    <div><ThemeProvider theme={theme}>
-        <NavAndSidebar>
-            <ProjectsRoute>
-                <ProjectInspector />
-            </ProjectsRoute>
-        </NavAndSidebar>
-    </ThemeProvider></div>
-  );
+    return (
+        <div>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+                <ThemeProvider theme={theme}>
+                    <NavAndSidebar>
+                        <ProjectsRoute>
+                            <ProjectInspector/>
+                        </ProjectsRoute>
+                    </NavAndSidebar>
+                </ThemeProvider>
+            </MuiPickersUtilsProvider></div>);
 }
 
 export default App;

@@ -6,8 +6,7 @@ import ExpenseFactory from '../classes/expenses/ExpenseFactory';
 import Project from '../classes/projects/Project';
 import ProjectFactory from '../classes/projects/ProjectFactory';
 import * as Schema from '../classes/Schema';
-import RootStore from './Rootstore'
-
+import RootStore from './Rootstore';
 
 type EmptyProject = {name:"No Project"}
 
@@ -44,7 +43,7 @@ export default class DataStore {
         const project = ProjectFactory.makeProject(projectSchema)
         Object.assign(this.project, project);
         ui.viewType.root = "project";
-        this.rootStore.ui.setProjectLoaded(true)
+        ui.setProjectLoaded(true);
     }
 
     @action getProjects = (userId: DatabaseIdType) => {

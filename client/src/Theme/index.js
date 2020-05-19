@@ -110,15 +110,25 @@ const typography = {
 
 const overrides = {
     MuiButton: {
+        textPrimary: {
+            color: "#6d4c41",
+            border: "1px solid",
+            borderColor: "#6d4c41"
+        },
+        primary: {
+            color: "#6d4c41",
+            border: "1px solid",
+            borderColor: "#6d4c41"
+        },
         secondary: {
             color: "#6d4c41",
             border: "1px solid",
             borderColor: "#6d4c41"
         }
+    },
 
-    }
 }
 
 const themeName = 'Sazerac Porcelain Caracal';
-let theme = createMuiTheme({palette: themeJSON.palette, typography, overrides, themeName});
+let theme = createMuiTheme({palette: themeJSON.palette, typography, overrides, themeName}, {testStyle: {color: 'red'}});
 export default theme;

@@ -1,21 +1,17 @@
+import { makeStyles } from "@material-ui/core/styles";
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import React, { FunctionComponent } from 'react';
 import { useObserver } from 'mobx-react';
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
 import Expense from '../../classes/expenses/Expense';
+import { componentStyles } from './componentStyles';
 
 interface IExpensesRowProps { expense: Expense }
 
 type ExpensesRowProps = IExpensesRowProps;
 
 const useStyles = makeStyles({
-    moneyColumn:{
-        width:100
-    },
-    dateColumn:{
-        width:100
-    }
+    ...componentStyles,
 });
 
 const ExpensesRow = (props: IExpensesRowProps)=>{
@@ -26,7 +22,7 @@ const ExpensesRow = (props: IExpensesRowProps)=>{
         <TableCell align="left">{expense.description}</TableCell>
         <TableCell align="left">{expense.vendor}</TableCell>
         <TableCell className={classes.moneyColumn} align="right">{expense.amount.toFormat('$0,0.00')}</TableCell>
-        <TableCell className={classes.moneyColumn} align="right">{expense.amount.toFormat('$0,0.00')}</TableCell>
+        <TableCell className={classes.moneyColumn} align="right">{expense.hst.toFormat('$0,0.00')}</TableCell>
     </TableRow>)
 }
 

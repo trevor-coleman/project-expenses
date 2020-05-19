@@ -1,28 +1,27 @@
-import { useObserver } from 'mobx-react';
-import React, { PropsWithChildren } from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import { Container } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import BusinessIcon from '@material-ui/icons/Business'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import BusinessIcon from '@material-ui/icons/Business';
+import { useObserver } from 'mobx-react';
+import React, { PropsWithChildren } from 'react';
 import ProjectList from '../Components/ProjectList';
 import store from '../store';
 
-
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: 'flex',
-        },
+const useStyles = makeStyles((theme: Theme) => createStyles({
+    root: {
+        display: 'flex',
+    },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
         },
@@ -37,8 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
             overflow: 'auto',
         },
         content: {
-            flexGrow: 1,
-            padding: theme.spacing(1),
+            flexGrow: 1, padding: theme.spacing(3),
         },
     }),
 );
@@ -91,8 +89,10 @@ export default function NavAndSidebar(props:PropsWithChildren<any>) {
                 </div>
             </Drawer>
             <main className={classes.content}>
-                <Toolbar />
-                {children}
+                <Toolbar/>
+                <Container>
+                    {children}
+                </Container>
             </main>
         </div>}
     )

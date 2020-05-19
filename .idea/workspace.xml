@@ -13,7 +13,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Change inspection profile." />
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Create MyDinero with defaults.">
+      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesEditRow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/componentStyles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/overrides-mui.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Theme/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/DataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/DataStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/UiStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/UiStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/classes/MyDinero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/MyDinero.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,8 +48,14 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="ProjectId" id="1buOMJ6QXzDFUPSsv3x4RWoYOzG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -90,7 +113,7 @@
       <workItem from="1589585440307" duration="15716000" />
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
-      <workItem from="1589745880785" duration="42590000" />
+      <workItem from="1589745880785" duration="48391000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -176,7 +199,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589835463439</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="change inspection profile">
+      <created>1589841337632</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1589841337632</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Create MyDinero with defaults.">
+      <created>1589841396492</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589841396492</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +232,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/client" />
     </ignored-roots>
@@ -210,9 +248,18 @@
     <MESSAGE value="update theme." />
     <MESSAGE value="Create ExpensesList and ExpensesRow." />
     <MESSAGE value="Change inspection profile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change inspection profile." />
+    <MESSAGE value="change inspection profile" />
+    <MESSAGE value="Create MyDinero with defaults." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create MyDinero with defaults." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="780" y="304" key="#Deployment" timestamp="1589841385654">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="780" y="304" key="#Deployment/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589841385654" />
     <state x="917" y="513" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589492738414">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>

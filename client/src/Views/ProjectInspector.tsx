@@ -14,11 +14,9 @@ interface IProjectProps {
 type ProjectProps = IProjectProps;
 
 const useStyles = makeStyles({
-    Project: {},
-    ProjectName: {
+    Project: {}, ProjectName: {
         paddingBottom: 10,
-    },
-    topPaper: {},
+    }, topPaper: {},
 });
 
 interface TabPanelProps {
@@ -41,17 +39,15 @@ function TabPanel(props: TabPanelProps) {
             {value === index && (
                 <Box p={3}>
                     {children}
-                </Box>
-            )}
-        </div>
-    );
+                </Box>)}
+        </div>);
 }
 
 const ProjectInspector: FunctionComponent<IProjectProps> = (props: ProjectProps) => {
     const classes = useStyles();
     const {project} = store.data;
     const [value, setValue] = React.useState(0);
-    const {projectLoaded} = store.ui.projectInspector;
+    const state = store.ui.projectInspector;
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
@@ -60,35 +56,36 @@ const ProjectInspector: FunctionComponent<IProjectProps> = (props: ProjectProps)
     return useObserver(() => {
 
         return (
-            <div className={classes.Project}>
-                <Paper>
-                    <AppBar color={'transparent'} position={"static"}>
-                        <Tabs onChange={handleChange} value={value}>
-                            <Tab disabled={projectLoaded} label={"Summary"}/>
-                            <Tab label={"Expenses"}/>
-                            <Tab label={"Orders"}/>
-                        </Tabs>
-                    </AppBar>
-                    {project.name
-                     ? (
-                         <div>
+            state.projectLoaded
+            ? (
+                <div className={classes.Project}>
+                    <Paper>
+                        <AppBar color={'transparent'} position={"static"}>
+                            <Tabs onChange={handleChange} value={value}>
+                                <Tab label={"Summary"}/>
+                                <Tab label={"Expenses"}/>
+                                <Tab label={"Orders"}/>
+                            </Tabs>
+                        </AppBar>
+                        {project.name
+                         ? (
+                             <div>
 
-                             <TabPanel value={value} index={0}>
-                                 Summary
-                             </TabPanel>
-                             <TabPanel value={value} index={1}>
-                                 <ExpensesList/>
-                             </TabPanel>
-                             <TabPanel value={value} index={2}>
-                                 Orders
-                             </TabPanel>
-                         </div>)
-                     : (
-                         <div/>)}
-                </Paper>
-
-
-            </div>);
+                                 <TabPanel value={value} index={0}>
+                                     Summary
+                                 </TabPanel>
+                                 <TabPanel value={value} index={1}>
+                                     <ExpensesList/>
+                                 </TabPanel>
+                                 <TabPanel value={value} index={2}>
+                                     Orders
+                                 </TabPanel>
+                             </div>)
+                         : (
+                             <div/>)}
+                    </Paper>
+                </div>)
+            : <div/>);
     });
 };
 
