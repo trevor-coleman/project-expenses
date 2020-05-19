@@ -13,27 +13,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Extracted ExpensesEditRow as separate component. Added moment to handle dates. Add material-ui-picker. created state on ExpensesEditRow. Add sync script.">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/CurrencyFormat.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/MoneyField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/trevorcoleman.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/trevorcoleman.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesEditRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesEditRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ExpensesList/componentStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/componentStyles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/MyDinero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/MyDinero.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/Schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/expenses/Expense.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/expenses/Expense.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/expenses/ExpenseFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/expenses/ExpenseFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/DataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/DataStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/MyDinero.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/MyDinero.ts" afterDir="false" />
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row.">
       <change beforePath="$PROJECT_DIR$/server/models/ExpenseList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ExpenseList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/sampleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/sampleData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +100,7 @@
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
       <workItem from="1589745880785" duration="57849000" />
-      <workItem from="1589856539571" duration="8035000" />
+      <workItem from="1589856539571" duration="8350000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -226,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589847050138</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row.">
+      <created>1589865531590</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1589865531590</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +252,8 @@
     <MESSAGE value="change inspection profile" />
     <MESSAGE value="Create MyDinero with defaults." />
     <MESSAGE value="Extracted ExpensesEditRow as separate component. Added moment to handle dates. Add material-ui-picker. created state on ExpensesEditRow. Add sync script." />
-    <option name="LAST_COMMIT_MESSAGE" value="Extracted ExpensesEditRow as separate component. Added moment to handle dates. Add material-ui-picker. created state on ExpensesEditRow. Add sync script." />
+    <MESSAGE value="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add date to Expense. Add save and submit. Create MoneyField (by magic). Create parseDinero method. Format expense row." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

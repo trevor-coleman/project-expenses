@@ -9,7 +9,7 @@ export interface IExpense extends IHasIds{
     hst: Dinero;
 }
 
-export default class Expense extends AHasIds{
+export default class Expense extends AHasIds {
     date: moment.Moment;
     description: string;
     vendor: string;

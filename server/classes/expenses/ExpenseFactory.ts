@@ -1,19 +1,21 @@
+import moment from 'moment';
 import Database from '../database';
+import Dinero from "../MyDinero";
 import * as Schema from '../Schema';
 import Expense, { IExpense } from './Expense';
-import Dinero from "../MyDinero";
 
 export type ExpenseSchema = Schema.Expense;
 export type ExpenseInterface = IExpense;
 export type ExpenseType = Expense
 
-export default class ExpenseFactory  {  
+export default class ExpenseFactory {
 
     static makeExpense(expenseSchema: ExpenseSchema): ExpenseType {
-        const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
+        const {_id, date, userId, projectId, description, vendor, amount, hst} = expenseSchema;
 
         const newExpenseData: ExpenseInterface = {
             _id: _id + "",
+            date: moment(date),
             userId: userId + "",
             projectId: projectId + "",
             description,
@@ -26,10 +28,11 @@ export default class ExpenseFactory  {
     }
 
     public static makeSchema(expense: ExpenseType): ExpenseSchema {
-        const {_id, userId, projectId, description, vendor, amount, hst} = expense;
+        const {_id, date, userId, projectId, description, vendor, amount, hst} = expense;
 
         const expenseSchema: ExpenseSchema = {
             _id: Database.makeId(_id),
+            date: date.toISOString(),
             userId: Database.makeId(userId),
             projectId: Database.makeId(projectId),
             description,
@@ -42,20 +45,16 @@ export default class ExpenseFactory  {
     }
 
     static validateSchema(expenseSchema:ExpenseSchema) : ExpenseSchema {
-        try{
+        try {
             const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
 
             Database.validateIds([_id, userId, projectId]);
-            [amount, hst].forEach(
-                (item)=>{
-                    Database.validateMoney(item);
-                }
-            )
+            [amount, hst].forEach((item) => {
+                Database.validateMoney(item);
+            });
         } catch (e){
             throw new Error(`Schema Failed Validation - ${e}`);
         }
-
-
 
         return expenseSchema;
     }

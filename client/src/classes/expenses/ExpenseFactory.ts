@@ -8,7 +8,7 @@ export type ExpenseSchema = Schema.Expense;
 export type ExpenseInterface = IExpense;
 export type ExpenseType = Expense
 
-export default class ExpenseFactory  {
+export default class ExpenseFactory {
 
     static makeExpense(expenseSchema: ExpenseSchema): ExpenseType {
         const {_id, date, userId, projectId, description, vendor, amount, hst} = expenseSchema;
@@ -45,13 +45,13 @@ export default class ExpenseFactory  {
     }
 
     static validateSchema(expenseSchema:ExpenseSchema) : ExpenseSchema {
-        try{
+        try {
             const {_id, userId, projectId, description, vendor, amount, hst} = expenseSchema;
 
             Database.validateIds([_id, userId, projectId]);
-            [amount, hst].forEach((item)=>{
+            [amount, hst].forEach((item) => {
                 Database.validateMoney(item);
-            })
+            });
         } catch (e){
             throw new Error(`Schema Failed Validation - ${e}`);
         }

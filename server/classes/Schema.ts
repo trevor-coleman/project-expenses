@@ -1,10 +1,10 @@
 import { DatabaseIdType, Money, OrderItem, PaymentMethod, TaxType } from './';
 
-
 //Schemas define objects as represented in mongodb.
 
 export interface Expense {
     _id: DatabaseIdType;
+    date: string;
     userId: DatabaseIdType;
     projectId: DatabaseIdType;
     description: string;
