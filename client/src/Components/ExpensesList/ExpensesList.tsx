@@ -1,25 +1,34 @@
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
+import { RouteComponentProps } from '@reach/router';
 import { useObserver } from 'mobx-react';
 import React, { FunctionComponent } from 'react';
 import store from '../../store';
+import theme from '../../Theme/theme';
+import SectionHeader from '../SectionHeader';
 import { componentStyles } from './componentStyles';
 import ExpensesEditRow from './ExpensesEditRow';
 import ExpensesRow from './ExpensesRow';
 
-interface IExpensesListProps {}
+interface IExpensesListProps extends RouteComponentProps {}
 
 type ExpensesListProps = IExpensesListProps;
 
 const styles = {
-    expensesList: {}, expenseHeader: {
+    topButton: {
+        margin: theme.spacing(1),
+    },
+    expensesList: {},
+    expenseHeader: {
         marginBottom: 10,
     }, ...componentStyles,
 };
@@ -32,20 +41,51 @@ const ExpensesList: FunctionComponent<IExpensesListProps> = (props: ExpensesList
     const classes = useStyles();
     const {expenses} = store.data;
     const state = store.ui.expensesList;
+    console.log('render');
 
     return useObserver(() => (
         <div className={classes.expensesList}>
-            <Typography className={classes.expenseHeader} variant={"h6"}>Expenses</Typography>
-            <Button variant={'outlined'}
-                    size={"small"}
-                    color={"secondary"}
-                    startIcon={<AddIcon/>}
-                    onClick={() => store.ui.setExpenseListEditing(true)}
-            > Add New Expense</Button>
+            <Grid
+                container
+                justify="space-between">
+                <Grid item>
+                    <SectionHeader>Expenses</SectionHeader>
+                </Grid>
+                <Grid item>
+                    <Button
+                        className={classes.topButton}
+                        variant={'outlined'}
+                        size={'small'}
+                        color={'primary'}
+                        startIcon={<AddIcon />}
+                        onClick={() => store.ui.setAddingNewExpense(true)}
+                    > Add</Button>
+                    {state.editingExpenseList
+                     ? <Button
+                         className={classes.topButton}
+                         variant={'contained'}
+                         size={'small'}
+                         color={'primary'}
+                         startIcon={<AddIcon />}
+                         onClick={() => store.ui.setExpenseListEditMode(false)}
+                     > Stop Editing
+                     </Button>
+                     : <Button
+                         className={classes.topButton}
+                         variant={'outlined'}
+                         size={'small'}
+                         color={'primary'}
+                         startIcon={<EditIcon />}
+                         onClick={() => store.ui.setExpenseListEditMode(true)}
+                     > Edit </Button>}
+                </Grid>
+            </Grid>
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.dateColumn} align="left">
+                        <TableCell
+                            className={classes.dateColumn}
+                            align="left">
                             <Typography variant={'subtitle1'}>
                                 Date
                             </Typography>
@@ -60,24 +100,37 @@ const ExpensesList: FunctionComponent<IExpensesListProps> = (props: ExpensesList
                                 Vendor
                             </Typography>
                         </TableCell>
-                        <TableCell className={classes.moneyColumn} align="right">
+                        <TableCell
+                            className={classes.moneyColumn}
+                            align="right">
                             <Typography variant={'subtitle1'}>
                                 Amount
                             </Typography>
                         </TableCell>
-                        <TableCell className={classes.moneyColumn} align="right">
+                        <TableCell
+                            className={classes.moneyColumn}
+                            align="right">
                             <Typography variant={'subtitle1'}>
                                 HST
                             </Typography>
                         </TableCell>
+                        {state.editingExpenseList
+                         ? <TableCell
+                             className={classes.editColumn}
+                             align="right" />
+                         : null}
+
                     </TableRow>
-                    {state.editing
-                     ? <ExpensesEditRow/>
-                     : <TableRow/>}
+                    {state.addingNewExpense
+                     ? <ExpensesEditRow />
+                     : <TableRow />}
 
                 </TableHead>
                 <TableBody>
-                    {expenses.map((expense) => <ExpensesRow expense={expense} key={expense._id.toString()}/>)}
+                    {expenses.map((expense) => <ExpensesRow
+                        editMode={state.editingExpenseList}
+                        expense={expense}
+                        key={expense._id.toString()} />)}
                 </TableBody>
             </Table>
 

@@ -1,19 +1,19 @@
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/styles';
+import { RouteComponentProps } from '@reach/router';
 import { useObserver } from 'mobx-react';
 import React, { FunctionComponent } from 'react';
-import store from '../store';
+import store from '../../store';
+import ProjectListRow from './ProjectListRow';
 
-interface IProjectListProps {
-
+interface IProjectListProps extends RouteComponentProps {
 }
 
 type ProjectListProps = IProjectListProps;
 
 const useStyles = makeStyles({
     ProjectList: {},
+
 });
 
 const ProjectList: FunctionComponent<IProjectListProps> = (props: ProjectListProps) => {
@@ -22,12 +22,13 @@ const ProjectList: FunctionComponent<IProjectListProps> = (props: ProjectListPro
 
     return useObserver(() => (
         <div className={classes.ProjectList}>
-            <List>{
-                projects.map((project) => <ListItem key={project._id.toString()} button
-                                                    onClick={() => store.data.setProject(project._id)}><ListItemText
-                    primary={project.name} secondary={project._id}/></ListItem>)}</List>
-        </div>
-    ));
+            <List>{projects.map((project) => (
+                <ProjectListRow
+                    key={project._id.toString()}
+                    project={project}
+                />))}
+            </List>
+        </div>));
 };
 
 export default ProjectList;
