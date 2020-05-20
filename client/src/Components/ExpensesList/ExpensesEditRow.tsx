@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
@@ -11,8 +11,8 @@ import { useObserver } from 'mobx-react';
 import moment from 'moment';
 import React, { FunctionComponent, useState } from 'react';
 import { parseDinero } from '../../classes/MyDinero';
-import store from "../../store";
-import theme from '../../Theme';
+import store from '../../store';
+import theme from '../../Theme/theme';
 import { componentStyles } from './componentStyles';
 import MoneyField from './MoneyField';
 
@@ -21,13 +21,23 @@ interface IExpenseEditRowProps {}
 type ExpensesEditRowProps = IExpenseEditRowProps;
 
 const useStyles = makeStyles({
-    ExpenseEditRow: {}, fillWidth: {width: '100%'}, ...componentStyles, editCell: {
-        paddingTop: 5, paddingBottom: 5,
-    }, whiteBackground: {
+    ExpenseEditRow: {},
+    fillWidth: {width: '100%'}, ...componentStyles,
+    editCell: {
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    whiteBackground: {
         backgroundColor: 'white',
-    }, editRow: {
-        backgroundColor: theme.palette.primary.main,
-    }, buttonRow: {backgroundColor: theme.palette.primary.main},
+    },
+    editRow: {
+        backgroundColor: theme.palette.secondary.main,
+    },
+    buttonRow: {backgroundColor: theme.palette.secondary.main},
+    buttonRowButtons: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+    },
 });
 
 interface State {
@@ -69,7 +79,7 @@ const ExpensesEditRow: FunctionComponent<ExpensesEditRowProps> = (props: Expense
     };
 
     const stopEditingAndReset = (): void => {
-        store.ui.setExpenseListEditing(false);
+        store.ui.setAddingNewExpense(false);
     };
 
     const saveAndSubmit = (): void => {
@@ -151,22 +161,27 @@ const ExpensesEditRow: FunctionComponent<ExpensesEditRowProps> = (props: Expense
             </TableRow>
 
             <TableRow className={classes.buttonRow}>
-                <TableCell className={classNames(classes.editCell, classes.dateColumn)} align="left"/>
-                <TableCell align="left"/>
-                <TableCell align="left"/>
-                <TableCell className={classNames(classes.editCell, classes.moneyColumn)} align="right">
-                    <Button variant={"outlined"}
-                            color={'secondary'}
-                            size={'small'} onClick={stopEditingAndReset}>
-                        Cancel
-                    </Button>
-                </TableCell>
                 <TableCell
+                    className={classNames(classes.editCell, classes.dateColumn)}
+                    align="left" />
+                <TableCell align="left" />
+                <TableCell align="left" />
+                <TableCell
+                    colSpan={2}
                     className={classNames(classes.editCell, classes.moneyColumn)}
                     align="right">
                     <Button
+                        variant={'outlined'}
+                        color={'primary'}
+                        size={'small'}
+                        onClick={stopEditingAndReset}>
+                        Cancel
+                    </Button>
+
+                    <Button
+                        className={classes.buttonRowButtons}
                         onClick={saveAndSubmit}
-                        variant={"contained"}
+                        variant={'outlined'}
                         color={'primary'}
                         size={'small'}>
                         Save

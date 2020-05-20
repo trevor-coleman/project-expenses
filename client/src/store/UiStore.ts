@@ -6,7 +6,8 @@ export type ViewType = { root: "default" | "project" }
 export default class UiStore {
     private readonly rootStore: RootStore;
     @observable public expensesList = observable({
-        editing: false,
+        addingNewExpense: false,
+        editingExpenseList: false,
     });
 
     constructor(rootStore: RootStore) {
@@ -17,15 +18,20 @@ export default class UiStore {
         projectLoaded: false,
     });
 
-    @observable viewType: ViewType & IObservableObject = observable({root: "default"});
+    @observable viewType: ViewType & IObservableObject = observable({root: 'default'});
 
     @action
     public setProjectLoaded(newState: boolean): void {
         this.projectInspector.projectLoaded = newState;
     }
 
-    @action setExpenseListEditing(newState: boolean) {
-        this.expensesList.editing = newState;
+    @action setAddingNewExpense(newState: boolean) {
+        this.expensesList.addingNewExpense = newState;
+    }
+
+    @action
+    public setExpenseListEditMode(newState: boolean): any {
+        this.expensesList.editingExpenseList = newState;
     }
 }
 

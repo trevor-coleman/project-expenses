@@ -13,19 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/ExpensesList/ExpensesTabNav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ProjectList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProjectList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layout/NavAndSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes/Projects/ProjectsRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/projects/Project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/DataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/DataStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/classes/projects/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/projects/Project.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
         <option value="React Component (TS)" />
       </list>
     </option>
@@ -67,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;JSON" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/classes/transfers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/Theme" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -76,20 +64,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.splitter.proportion" value="0.20299885" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/classes/transfers" />
-      <recent name="$PROJECT_DIR$/classes/people" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/Components/ProjectList" />
+      <recent name="$PROJECT_DIR$/client/src/Components" />
+      <recent name="$PROJECT_DIR$/client/src/Views/ProjectInspector" />
       <recent name="$PROJECT_DIR$/client/src/Components/ExpensesList" />
       <recent name="$PROJECT_DIR$/client/src/Views" />
-      <recent name="$PROJECT_DIR$/client/src/Components" />
-      <recent name="$PROJECT_DIR$/server" />
-      <recent name="$PROJECT_DIR$/client/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/Theme" />
+      <recent name="$PROJECT_DIR$/classes/transfers" />
+      <recent name="$PROJECT_DIR$/classes/people" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -110,7 +100,8 @@
       <workItem from="1589646341646" duration="18159000" />
       <workItem from="1589684348696" duration="22921000" />
       <workItem from="1589745880785" duration="57849000" />
-      <workItem from="1589856539571" duration="16077000" />
+      <workItem from="1589856539571" duration="16694000" />
+      <workItem from="1589903811955" duration="25906000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -245,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589865650035</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table.">
+      <created>1589945806062</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1589945806062</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +286,8 @@
     <MESSAGE value="Sort expense results by date." />
     <MESSAGE value="Add date places" />
     <MESSAGE value="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add date places&#10;&#10;Signed-off-by: Trevor Coleman &lt;trevor@trevorcoleman.design&gt;" />
+    <MESSAGE value="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -302,14 +301,14 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="917" y="513" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589492738414" />
-    <state x="1046" y="375" key="#com.intellij.ide.util.MemberChooser" timestamp="1589862148857">
+    <state x="1046" y="375" key="#com.intellij.ide.util.MemberChooser" timestamp="1589944135760">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1046" y="375" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589862148857" />
-    <state x="952" y="416" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589831377177">
+    <state x="1046" y="375" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589944135760" />
+    <state x="952" y="416" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589907002911">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="952" y="416" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589821322975" />
+    <state x="952" y="416" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589907002911" />
     <state x="952" y="416" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440/2560.23.2560.1417/-1680.373.1680.1027@0.0.2560.1440" timestamp="1589831377177" />
     <state x="933" y="343" key="#start.js" timestamp="1589687891212">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -339,10 +338,11 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="2534" height="410" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589503986174" />
-    <state x="708" y="320" width="1734" height="897" key="SettingsEditor" timestamp="1589834358007">
+    <state x="708" y="320" width="1734" height="897" key="SettingsEditor" timestamp="1589945842921">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="708" y="320" width="1734" height="897" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589834358007" />
+    <state x="708" y="320" width="1734" height="897" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589945842921" />
+    <state x="708" y="320" key="SettingsEditor/0.0.2560.1440/2560.23.2560.1417/-1680.373.1680.1027@0.0.2560.1440" timestamp="1589903978751" />
     <state x="100" y="100" width="2360" height="1240" key="dock-window-1" timestamp="1589692458822">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -375,6 +375,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="900" y="393" width="759" height="726" key="find.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589833747538" />
+    <state x="1275" y="629" width="778" height="323" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1589927711640">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1275" y="629" width="778" height="323" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589927711640" />
     <state x="1087" y="471" key="refactoring.ChangeSignatureDialog" timestamp="1589833062252">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -383,9 +387,9 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="861" y="342" key="run.anything.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589766042402" />
-    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1589693498476">
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1589941515007">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589693498476" />
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589941515007" />
   </component>
 </project>

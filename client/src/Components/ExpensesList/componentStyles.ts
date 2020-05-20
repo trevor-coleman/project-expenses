@@ -1,11 +1,17 @@
 export const componentStyles = {
     moneyColumn: {
-        width: 100,
-    }, dateColumn: {
+        width: 150,
+    },
+    dateColumn: {
         width: 190,
-    }, descriptionColumn: {
+    },
+    descriptionColumn: {
         width: '50%',
-    }, vendorColumn: {
+    },
+    vendorColumn: {
         width: '50%',
+    },
+    editColumn: {
+        width: 50,
     },
 };
