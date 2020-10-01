@@ -46,4 +46,9 @@ export default class OrderFactory {
 
         return orderSchema;
     }
+
+    public static validateSchema(schema: any): OrderSchema {
+        console.log("OrderFactory --- validation is a stub")
+        return schema;
+    }
 }

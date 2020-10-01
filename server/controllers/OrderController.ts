@@ -2,22 +2,22 @@ import { Money } from 'classes';
 import { CategoryTotals } from 'classes/Schema';
 import { Request, Response } from 'express';
 import { ListCreatedResult } from 'models/ADbList';
-import ExpenseList from 'models/ExpenseList';
-import ExpenseFactory, { ExpenseSchema, ExpenseType } from '../classes/expenses/ExpenseFactory';
+import OrderList from 'models/OrderList';
+import OrderFactory, { OrderSchema, OrderType } from '../classes/orders/OrderFactory';
 import Database from '../classes/database';
 
 const db = Database.makeDb()
-const expenseList = new ExpenseList({ db })
+const orderList = new OrderList({ db })
 
-type CreateExpenseResult = ListCreatedResult<ExpenseType>
+type CreateOrderResult = ListCreatedResult<OrderType>
 
-export default class ExpenseController {
-    public validateSchema(schema: any): ExpenseSchema {
-        return ExpenseFactory.validateSchema(schema);
+export default class OrderController {
+    public validateSchema(schema: any): OrderSchema {
+        return OrderFactory.validateSchema(schema);
     }
 
     static async create (req: Request, res: Response)  {
-        let result: CreateExpenseResult | null = null;
+        let result: CreateOrderResult | null = null;
 
         console.log("REQ BODY:", req.body)
 
@@ -26,9 +26,9 @@ export default class ExpenseController {
                 res.send("Bad request").status(400)
             }
 
-            const schema:ExpenseSchema = ExpenseFactory.validateSchema(req.body)
+            const schema:OrderSchema = OrderFactory.validateSchema(req.body)
             console.log("==>", schema)
-            result = await expenseList.create(schema);
+            result = await orderList.create(schema);
             if(result){
                 res.send(result.created).status(200);}
             else{
@@ -43,8 +43,8 @@ export default class ExpenseController {
 
     static async findById(req: Request, res: Response) {
         try{
-            const id = req.params.expenseId;
-            const result = await expenseList.findById(id)
+            const id = req.params.orderId;
+            const result = await orderList.findById(id)
             if(result){
                 res.send(result).status(200)
             } else {
@@ -58,7 +58,7 @@ export default class ExpenseController {
     static async getByUserId(req: Request, res: Response){
         try{
             const {userId} = req.params;
-            const result = await expenseList.findProjectsByUserId(userId)
+            const result = await orderList.findProjectsByUserId(userId)
             if(result){
                 res.send(result).status(200)
             } else {
@@ -72,7 +72,7 @@ export default class ExpenseController {
     public static async getByProjectId(req: Request, res: Response){
         try{
             const {projectId: projectId} = req.params;
-            const result = await expenseList.findExpensesByProjectId(projectId)
+            const result = await orderList.findOrdersByProjectId(projectId)
             if(result){
                 res.send(result).status(200)
             } else {
@@ -84,8 +84,8 @@ export default class ExpenseController {
 
     }
 
-    public static async getTotalExpensesByProject(projectId:string): Promise<CategoryTotals | null> {
-        const result = await expenseList.getTotalAmountByProject(projectId);
+    public static async getTotalOrdersByProject(projectId:string): Promise<CategoryTotals | null> {
+        const result = await orderList.getTotalOrdersByProjectId(projectId);
 
         return result;
     }

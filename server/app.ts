@@ -18,9 +18,11 @@ app.use(express.static(path.join(__dirname, '../build/client')));
 app.post("/api/project", ProjectController.create);
 app.get('/api/project/:projectId', ProjectController.findById)
 app.get('/api/:userId/projects', ProjectController.getByUserId);
+app.get('/api/project/:projectId/totals', ProjectController.getTotals)
 
 app.post('/api/expense', ExpenseController.create);
-app.get('/api/:projectId/expenses', ExpenseController.getByProjectId)
+app.get('/api/project/:projectId/expenses', ExpenseController.getByProjectId)
+
 
 
 

@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { Router } from '@reach/router';
 import React from 'react';
 import './App.css';
+import DebugPanel from './Components/DebugPanel/DebugPanel';
 import Navigation from './Layout/Navigation';
 import HomeRoute from './Routes/HomeRoute';
 import ProjectsRoute from './Routes/Projects/ProjectsRoute';
@@ -14,6 +15,7 @@ function App() {
         <div>
             <MuiPickersUtilsProvider utils={MomentUtils}>
                 <ThemeProvider theme={theme}>
+                    <DebugPanel/>
                     <Navigation>
                         <Router>
                             <ProjectsRoute path={'/project/*'} />

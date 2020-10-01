@@ -13,6 +13,10 @@ export interface Expense {
     hst: Money;
 }
 
+export interface ProjectSummaryTotals { _id: string; expenses: CategoryTotals | null, orders: CategoryTotals|null}
+export interface CategoryTotals { _id: string|null; amount: number; hst: number }
+
+
 export interface Project{
     _id: DatabaseIdType;
     userId: DatabaseIdType;

@@ -1,5 +1,7 @@
 import { Box } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { RouteComponentProps } from '@reach/router';
 import { useObserver } from 'mobx-react';
@@ -32,7 +34,7 @@ const Summary: FunctionComponent<ISummaryProps> = (props: SummaryProps) => {
                 <Grid item>
                 </Grid>
             </Grid>
-            <Grid spacing={3}>
+            <Grid container spacing={3}>
                 <Grid
                     item
                     xs={12}>

@@ -1,4 +1,8 @@
+import { CategoryTotals, ProjectSummaryTotals } from 'classes/Schema';
+import ExpenseController from 'controllers/ExpenseController';
+import OrderController from 'controllers/OrderController';
 import {Request, Response} from 'express';
+import ExpenseList from 'models/ExpenseList';
 import ProjectList, { CreateProjectResult } from 'models/ProjectList';
 import ProjectFactory, { ProjectSchema } from '../classes/projects/ProjectFactory';
 import Database from '../classes/database';
@@ -53,6 +57,28 @@ export default class ProjectController{
                 res.send(null).status(204)
             }
         } catch(e) {
+            res.send("Bad request").status(400)
+        }
+    }
+
+    static async getTotals(req:Request, res: Response){
+        try{
+            const {projectId} = req.params;
+            const totalExpenses: CategoryTotals | null = await ExpenseController.getTotalExpensesByProject(projectId)
+            const totalOrders: CategoryTotals | null = await OrderController.getTotalOrdersByProject(projectId)
+            const result : ProjectSummaryTotals ={
+                _id: projectId,
+                expenses: totalExpenses,
+                orders: totalOrders,
+            }
+            console.log(result);
+            if(result){
+                res.send(result).status(200)
+            } else {
+                res.send(null).status(204)
+            }
+
+        } catch (e) {
             res.send("Bad request").status(400)
         }
     }

@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { Dinero } from 'dinero.js';
 import { useObserver } from 'mobx-react';
 import React, { FunctionComponent } from 'react';
-import MyDinero from '../classes/MyDinero';
+import store from '../store';
 import theme from '../Theme';
 
 interface ISummaryTableProps {}
@@ -46,46 +46,39 @@ const useStyles = makeStyles({
 });
 
 interface ICalculationTableProps {
-    info: ICalculationTableInfo
-}
-
-interface ICalculationTableInfo {
     title: string;
-    description: string;
-    firstTerm: {
-        label: string; amount: Dinero;
-    }
-    secondTerm: {
-        label: string; amount?: Dinero; type: 'percent' | 'normal'; percentAmount?: number;
-    }
-    total: {
-        label: string; amount: Dinero;
-    }
+    firstTermLabel: string;
+    firstTermAmount: Dinero;
+    secondTermLabel: string;
+    secondTermAmount?: Dinero;
+    secondTermPercent?: boolean;
+    secondTermPercentAmount?: number;
+    totalLabel: string;
+    totalAmount: Dinero;
 }
 
 const CalculationTable = (props: ICalculationTableProps) => {
     const classes = useStyles();
-    const {title, firstTerm, secondTerm, total, description} = props.info;
-    const secondTermString: string = secondTerm.type === 'normal'
-                                     ? secondTerm!.amount!
+    const {title, firstTermLabel, firstTermAmount, secondTermLabel,secondTermAmount,secondTermPercent, secondTermPercentAmount,totalLabel,totalAmount} = props
+    const secondTermString: string = secondTermPercent
+                                     ? Math
+                                           .round(secondTermPercentAmount! * 100)
+                                           .toString() + '%'
+                                     : secondTermAmount!
                                          .toFormat('$0.00')
-                                     : Math
-                                           .round(secondTerm!.percentAmount! * 100)
-                                           .toString() + '%';
 
     return <Paper className={classes.paper}>
         <Typography variant={'h6'}>{title}</Typography>
-        <Typography variant={'caption'}>{description}</Typography>
         <Table>
             <TableBody>
                 <TableRow>
-                    <TableCell className={classes.tableCell}>{firstTerm.label}</TableCell>
+                    <TableCell className={classes.tableCell}>{firstTermLabel}</TableCell>
                     <TableCell
                         className={classes.tableCell}
-                        align='right'>{firstTerm.amount.toFormat('$0.00')}</TableCell>
+                        align='right'>{firstTermAmount.toFormat('$0.00')}</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell className={classes.tableCell}>{secondTerm.label}</TableCell>
+                    <TableCell className={classes.tableCell}>{secondTermLabel}</TableCell>
                     <TableCell
                         className={classes.tableCell}
                         align='right'>{secondTermString}</TableCell>
@@ -97,7 +90,7 @@ const CalculationTable = (props: ICalculationTableProps) => {
                         <Typography
                             className={classes.boldText}
                             variant='subtitle1'>
-                            {total.label}
+                            {totalLabel}
                         </Typography>
                     </TableCell>
                     <TableCell
@@ -106,7 +99,7 @@ const CalculationTable = (props: ICalculationTableProps) => {
                         <Typography
                             className={classes.boldText}
                             variant='subtitle1'>
-                            {total.amount.toFormat('$0.00')}
+                            {totalAmount.toFormat('$0.00')}
                         </Typography>
                     </TableCell>
                 </TableRow>
@@ -117,112 +110,83 @@ const CalculationTable = (props: ICalculationTableProps) => {
 
 const SummaryTable: FunctionComponent<ISummaryTableProps> = (props: SummaryTableProps) => {
     const classes = useStyles();
+    return useObserver(() => {
+        const {data} = store;
 
-    const revenueInfo: ICalculationTableInfo = {
-        title: 'Revenue',
-        description: 'Total collected, not including sales tax',
-        firstTerm: {
-            amount: MyDinero({amount: 11300}),
-            label: 'Total Collected',
-        },
-        secondTerm: {
-            amount: MyDinero({amount: 1300}),
-            label: 'HST Collected',
-            type: 'normal',
-        },
-        total: {
-            amount: MyDinero({amount: 10000}),
-            label: 'Total Revenue',
-        },
-
-    };
-
-    const profitInfo: ICalculationTableInfo = {
-        title: 'Profit',
-        description: 'Total after expenses and sales tax',
-        firstTerm: {
-            amount: MyDinero({amount: 10000}),
-            label: 'Total Revenue',
-        },
-        secondTerm: {
-            amount: MyDinero({amount: 2500}),
-            label: 'Total Expenses',
-            type: 'normal',
-        },
-        total: {
-            amount: MyDinero({amount: 7500}),
-            label: 'Total Profit',
-        },
-
-    };
-
-    const salesTaxInfo: ICalculationTableInfo = {
-        firstTerm: {
-            amount: MyDinero({amount: 1300}),
-            label: 'HST Collected',
-        },
-        secondTerm: {
-            amount: MyDinero({amount: 650}),
-            label: 'HST Paid on Expenses',
-            type: 'normal',
-        },
-        total: {
-            amount: MyDinero({amount: 650}),
-            label: 'HST Remittance',
-        },
-        title: 'Sales Tax',
-        description: 'Amount to set aside for sales tax',
-    };
-
-    const incomeTaxInfo: ICalculationTableInfo = {
-        firstTerm: {
-            amount: MyDinero({amount: 7500}),
-            label: 'Gross Profit',
-        },
-        secondTerm: {
-            percentAmount: 0.2,
-            label: 'Income Tax Percent',
-            type: 'percent',
-        },
-        total: {
-            amount: MyDinero({amount: 1500}),
-            label: 'Income tax withholding',
-        },
-        title: 'Income Tax',
-        description: 'Amount to set aside for sales tax',
-    };
-
-    return useObserver(() => (
-        <Box>
-            <Grid
-                container
-                direction='row'
-                xs
-                spacing={3}>
+        return (
+            <Box>
                 <Grid
-                    item
-                    xs>
+                    container
+                    direction='row'
+                    spacing={3}>
                     <Grid
-                        container
-                        direction={'column'}>
-                        <Grid xs><CalculationTable info={revenueInfo} /></Grid>
+                        item
+                        xs>
                         <Grid
-                            xs
-                            className={classes.summaryGrid}>
-                            <CalculationTable info={profitInfo} /></Grid>
+                            container
+                            spacing={3}
+                            direction={'column'}>
+                            <Grid
+                                item
+                                xs><CalculationTable
+                                    title='Income'
+                                    firstTermAmount={data.totals.totalCollected}
+                                    firstTermLabel={'Total Collected'}
+                                    secondTermAmount={data.totals.totalHstCollected.multiply(-1)}
+                                    secondTermLabel='HST'
+                                    totalAmount={data.totals.totalRevenue}
+                                    totalLabel='Total Income'
+                            /></Grid>
+                            <Grid
+                                item
+                                xs
+                                className={classes.summaryGrid}>
+                                <CalculationTable
+                                    title='Profit'
+                                    firstTermAmount={data.totals.totalCollected}
+                                    firstTermLabel={'Total Revenue'}
+                                    secondTermAmount={data.totals.expensesWithoutHst}
+                                    secondTermLabel='Expenses (without HST)'
+                                    totalAmount={data.totals.totalProfit}
+                                    totalLabel='Total Profit'
+                                /></Grid>
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid
-                    item
-                    xs>
                     <Grid
-                        container
-                        direction={'column'}>
-                        <Grid xs><CalculationTable info={salesTaxInfo} /></Grid>
-                        <Grid xs><CalculationTable info={incomeTaxInfo} /></Grid>
-                    </Grid></Grid>
-            </Grid>
-        </Box>));
+                        item
+                        xs>
+                        <Grid
+                            container
+                            direction={'column'}
+                            spacing={3}
+                        >
+                            <Grid
+                                item
+                                xs><CalculationTable
+                                title='HST Remittance'
+                                firstTermAmount={data.totals.totalHstCollected}
+                                firstTermLabel={'HST Collected'}
+                                secondTermAmount={data.totals.totalHstPaid.multiply(-1)}
+                                secondTermLabel='HST Paid (ITC)'
+                                totalAmount={data.totals.hstRemittance}
+                                totalLabel='HST Owed to Government'
+                            /></Grid>
+                            <Grid
+                                item
+                                xs><CalculationTable
+                                title='Income Tax'
+                                firstTermAmount={data.totals.totalProfit}
+                                firstTermLabel={'Total Profit'}
+                                secondTermPercentAmount={data.project.incomeTaxRate ? data.project.incomeTaxRate : 0.0}
+                                secondTermLabel='Income Tax Rate'
+                                secondTermPercent
+                                totalAmount={data.totals.incomeTax}
+                                totalLabel='Amount to Set Aside'
+                            /></Grid>
+                        </Grid></Grid>
+                </Grid>
+            </Box>);
+    });
 };
 
 export default SummaryTable;

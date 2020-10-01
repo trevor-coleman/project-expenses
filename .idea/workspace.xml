@@ -13,7 +13,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table." />
+    <list default="true" id="e2e0a177-1a44-4469-aa1f-75ecfd3d39be" name="Default Changelist" comment="Create pages for Summary and Orders. Create page layout. Update theme colours. Create SummaryTable and Calculation Table.">
+      <change afterPath="$PROJECT_DIR$/client/src/Components/DebugPanel/Controls/ApiGETButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/DebugPanel/DebugPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/DebugPanel/ProjectDebugPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/OrderController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/SummaryTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/SummaryTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/ProjectInspector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Views/ProjectInspector/Summary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Views/ProjectInspector/Summary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/classes/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/Schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/classes/orders/OrderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/classes/orders/OrderFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/DataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/DataStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/classes/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/Schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/classes/orders/OrderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/classes/orders/OrderFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/ExpenseController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/ExpenseController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/ProjectController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/ProjectController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/ExpenseList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/ExpenseList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/OrderList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/OrderList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,10 +45,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
         <option value="React Component (TS)" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -55,7 +77,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;JSON" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/Theme" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -70,13 +92,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/Components/DebugPanel" />
       <recent name="$PROJECT_DIR$/client/src/Components/ProjectList" />
       <recent name="$PROJECT_DIR$/client/src/Components" />
       <recent name="$PROJECT_DIR$/client/src/Views/ProjectInspector" />
       <recent name="$PROJECT_DIR$/client/src/Components/ExpensesList" />
-      <recent name="$PROJECT_DIR$/client/src/Views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/controllers" />
       <recent name="$PROJECT_DIR$/client/src/Theme" />
       <recent name="$PROJECT_DIR$/classes/transfers" />
       <recent name="$PROJECT_DIR$/classes/people" />
@@ -101,7 +124,16 @@
       <workItem from="1589684348696" duration="22921000" />
       <workItem from="1589745880785" duration="57849000" />
       <workItem from="1589856539571" duration="16694000" />
-      <workItem from="1589903811955" duration="25906000" />
+      <workItem from="1589903811955" duration="26853000" />
+      <workItem from="1589981473393" duration="2762000" />
+      <workItem from="1589984286360" duration="14937000" />
+      <workItem from="1590089307417" duration="1104000" />
+      <workItem from="1590091988246" duration="86000" />
+      <workItem from="1590173406981" duration="597000" />
+      <workItem from="1590611605220" duration="2208000" />
+      <workItem from="1594907602339" duration="609000" />
+      <workItem from="1594996593109" duration="402000" />
+      <workItem from="1595066967982" duration="135000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Container from App.">
       <created>1589834690561</created>
@@ -338,10 +370,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="2534" height="410" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589503986174" />
-    <state x="708" y="320" width="1734" height="897" key="SettingsEditor" timestamp="1589945842921">
+    <state x="708" y="320" width="1734" height="897" key="SettingsEditor" timestamp="1590091994119">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="708" y="320" width="1734" height="897" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589945842921" />
+    <state x="708" y="320" width="1734" height="897" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1590091994119" />
     <state x="708" y="320" key="SettingsEditor/0.0.2560.1440/2560.23.2560.1417/-1680.373.1680.1027@0.0.2560.1440" timestamp="1589903978751" />
     <state x="100" y="100" width="2360" height="1240" key="dock-window-1" timestamp="1589692458822">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -387,9 +419,9 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="861" y="342" key="run.anything.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589766042402" />
-    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1589941515007">
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1590010766057">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1589941515007" />
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440/-1680.350.1680.1050@0.0.2560.1440" timestamp="1590010766057" />
   </component>
 </project>

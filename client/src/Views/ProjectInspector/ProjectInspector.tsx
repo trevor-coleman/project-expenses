@@ -1,4 +1,6 @@
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -74,6 +76,7 @@ const ProjectInspector: FunctionComponent<IProjectProps> = (props: ProjectProps)
                         <Tab label={'Orders'} />
                     </Tabs>
                 </AppBar>
+
                 <Router primary={false}>
                     <Summary path={'/'} />
                     <Expenses path={'expenses'} />
